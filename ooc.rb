@@ -21,4 +21,4 @@ exit
 
 test "puts(1 + 2 + 3)"  # => "1 + 2 + 3"@0
 test "1 + 2 + 3"  # => "1 + 2 + 3"@0
-test "a + 2"      # fails, see below
+test "a + 2"      # => "a + 2"@0

@@ -22,4 +22,10 @@ class OocParser
   rule(:string_lit) { str('"') >> (!str('"') | (hex_escape | octal_escape | other_escape) | eol).repeat(1) >> str('"') }
   rule(:char_lit)   { str("'") >> (!str("'") | (hex_escape | octal_escape | other_escape) | eol).repeat(1) >> str("'") }
   rule(:bool_lit)   { ((true_kw >> match('[^A-Za-z_]')) | (false_kw >> match('[^A-Za-z_]'))) >> hyphen }
+
+  rule(:intLiteral)  { oct_lit | hex_lit | dec_lit }
+
+  rule(:valueCore) { oct_lit | hex_lit | bin_lit | float_lit | dec_lit | string_lit | char_lit | bool_lit |
+                     match | (null_kw >> match('&[^A-Za-z_]') >> hyphen) | arrayLiteral | tuple | functionCall |
+                     genericType | variableAccess }
 end

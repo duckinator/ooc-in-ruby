@@ -12,7 +12,7 @@ class OocParser
 
   rule(:body) { ('{' >> (ws >> stmt >> ws).repeat(0) >> ws >> str('}')) | stmt }
 
-  rule(:return) { (return_kw >> expr >> hyphen) | (return_kw >> hyphen) }
+  rule(:return_) { (return_kw >> expr >> hyphen) | (return_kw >> hyphen) }
 
   rule(:expr) { (variableDecl >> hyphen) | (doubleArrow >> hyphen) |
                 (binaryOperation >> hyphen >> (hyphen >> str('.') >> ws >> functionCall).repeat(0)) |

@@ -1,116 +1,41 @@
-__END__
+class OocParser
+  rule(:stmt) { (
+                  old.as(:old) >> ws >> str('version') >> ws >> str('(') >> hyphen >> versionSpec.as(:spec) >> ws >> str(')') >>
+                  ((hyphen >> str('{') >> ws >> stmt.as(:s).repeat(0) >> ws >> hyphen >> str('}')) | (hyphen >> stmt.as(:s))) >>
+                  (ws >> str('else') >> hyphen >> str('version') >> ws >> str('(') >>  hyphen >> versionSpec.as(:elseSpec) >> ws >> str(')') >>
+                    ((hyphen >> str('{') >> ws >> stmt.repeat(0) >> ws >> hyphen >> str( '}')) | (hyphen >> stmt))
+                  ).repeat(0) >>
+                  (ws >> str('else') >> ((hyphen >> str('{') >> ws >> stmt.repeat(0) >> ws >> hyphen >> str('}')) | (hyphen >> stmt))).maybe
+                ) | stmtCore }
 
-# TODO
+  rule(:stmtCore) { (
+                    # some statements need an EOL after them...
+                    eoledStatement.as(:e) >>
+                    (terminator.repeat(1) | (ws >> &str('}')) | (ws >>  &str(')')) | (ws >> &str(',')) | (&commentLine))
+                    ) |
+                    # ...but block don't
+                    ws >> conditional.as(:c) |
+                    ws >> block.as(:b)       |
+                    ws >> flowControl.as(:f) >> terminator.repeat(0) |
+                    ws >> match.as(:m)       |
+                    ws >> try.as(:t) }
 
-Stmt     = (
-                old:Old
-                WS 'version' { tokenPos; }
-                WS '('
-                - spec:VersionSpec
-                WS ')'
-                ((
-                - '{' { nq_onVersionStart(core->this, spec); }
-                WS (s:Stmt { nq_onStatement(core->this, s); })* WS
-                - '}' { old=$$=nq_onVersionEnd(core->this); }
-                )
-                |
-                (
-                - s:Stmt { nq_onVersionStart(core->this, spec); nq_onStatement(core->this, s); old=$$=nq_onVersionEnd(core->this); }
-                ))
-                (
-                  WS 'else' - 'version' { tokenPos }
-                  WS '('
-                  - elseSpec: VersionSpec
-                  WS ')'
-                  ((
-                  - '{' { spec = nq_onVersionElseIfStart(core->this, spec, elseSpec) }
-                  WS (s:Stmt { nq_onStatement(core->this, s); })* WS
-                  - '}' { $$=nq_onVersionEnd(core->this); nq_onStatement(core->this, old); old=$$ }
-                  )
-                  |
-                  (
-                  - s:Stmt { spec = nq_onVersionElseIfStart(core->this, spec, elseSpec); nq_onStatement(core->this, s); $$=nq_onVersionEnd(core->this); nq_onStatement(core->this, old); old=$$ }
-                  ))
-                )*
-                (
-                  WS 'else' { tokenPos }
-                  ((
-                  - '{' { nq_onVersionElseStart(core->this, spec) }
-                  WS (s:Stmt { nq_onStatement(core->this, s); })* WS
-                  - '}' { $$=nq_onVersionEnd(core->this); nq_onStatement(core->this, old); old=$$ }
-                  )
-                  |
-                  (
-                  - s:Stmt { nq_onVersionElseStart(core->this, spec); nq_onStatement(core->this, s); $$=nq_onVersionEnd(core->this); nq_onStatement(core->this, old); old=$$ }
-                  ))
-                )?
-            )
-         | StmtCore
+  rule(:eoledStatement) {  ( ws >> return_ | ws >> variableDecl | ws >> expr)
 
-StmtCore = (
-              # some statements need an EOL after them...
-              e:EoledStatement
-              (Terminator+ | (WS &'}') | (WS &')') | (WS &',') | (&CommentLine))
-           )
-          | # ...but block don't
-          ( WS c:Conditional
-          | WS b:Block
-          | WS f:FlowControl (Terminator*)
-          | WS m:Match
-          | WS t:Try
-          )
+  rule(:conditional) { if_ | else_ }
 
-EoledStatement =  ( WS Return
-                  | WS VariableDecl
-                  | WS Expr
-                  )
+  rule(:block) { (str('{') >>  (ws >> stmt.as(:s) >> ws).repeat(0) >> ws >> str('}')) }
 
-Conditional = (If | Else)
+  rule(:if_) { (if_kw >> ws >> str('(') >> ws >> hyphen >> expr.as(:e) >> ws >> str(')') >> hyphen >> body) }
 
-Block   = (
-           '{' { tokenPos; nq_onBlockStart(core->this); }
-          (WS s:Stmt { tokenPos; nq_onStatement(core->this, s) } WS)*
-           WS '}' { $$=nq_onBlockEnd(core->this); }
-          )
+  rule(:else_) { else_kw >> hyphen >> body }
 
-If      = (
-          IF_KW { tokenPos; }
-          WS '(' WS
-          - e:Expr       { nq_onIfStart(core->this, e); }
-          WS ')'
-          - Body
-          )              { $$=nq_onIfEnd(core->this); }
+  rule(:case_) { case_kw >> (hyphen >> caseExpr.as(:v)).maybe >> ws >> double_arrow >> (ws >> stmt.as(:s) >> ws).repeat(0) >> ws }
 
-Else    = (
-          ELSE_KW  { tokenPos; }
-                         { nq_onElseStart(core->this); }
-          - Body
-          )              { $$=nq_onElseEnd(core->this); }
+  rule(:match) { match_kw >> (hyphen >> value.as(:v)).maybe >> ws >> str('{') >>
+                 (ws >> case_ >> ws).repeat(0) >> ws >> str('}') }
 
-Case    = CASE_KW  { tokenPos; nq_onCaseStart(core->this); }
-        (- v:CaseExpr { nq_onCaseExpr(core->this, v); })?
-        WS DOUBLE_ARROW
-         (WS
-          (s:Stmt  { nq_onStatement(core->this, s) })
-          WS)*
-          WS
-          { nq_onCaseEnd(core->this); }
+  rule(:try) { try_kw >> hyphen >> body >> (ws >> catch >> ws).repeat(0) }
 
-Match   = MATCH_KW { tokenPos; nq_onMatchStart(core->this); }
-            (- v: Value { nq_onMatchExpr(core->this, v); })?
-          WS '{'
-          (WS Case WS)*
-          WS CLOS_BRACK ~{ nq_error(core->this, NQE_EXP_CASE_IN_MATCH, "Expected case in match", G->pos + G->offset) }
-          { $$=nq_onMatchEnd(core->this); }
-
-Try     = TRY_KW { tokenPos; nq_onTryStart(core->this); }
-          - Body
-          (WS Catch WS)*
-          { $$=nq_onTryEnd(core->this); }
-
-Catch   = CATCH_KW { tokenPos; nq_onCatchStart(core->this); }
-          (- v:Expr { nq_onCatchExpr(core->this, v); })?
-          WS '{'
-          (WS s:Stmt WS { nq_onStatement(core->this, s); })*
-          WS '}'
-          { nq_onCatchEnd(core->this); }
+  rule(:catch) { catch_kw >> (hyphen >> expr.as(:v)).maybe >> ws >> str('{') >> (ws >> stmt.as(:s) >> ws).repeat(0) >> ws >> str('}') }
+end

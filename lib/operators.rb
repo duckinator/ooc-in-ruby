@@ -16,7 +16,7 @@ class OocParser
                          ass_b_or      >> ws >> ternary |
                          ass_b_and     >> ws >> ternary ).repeat(0) }
   
-  rule(:ternary) { logicalOr >> (hyphen >> quest >> ws >> logicalOr.as(:ifTrue) >> hyphen >> colon >> ws >> logicalOr.as(:ifFalse)).maybe }
+  rule(:ternary) { logicalOr >> (_ >> quest >> ws >> logicalOr.as(:ifTrue) >> _ >> colon >> ws >> logicalOr.as(:ifFalse)).maybe }
   
   rule(:logicalOr) { logicalAnd >> (l_or >> ws >> logicalAnd).repeat(0) }
   
@@ -50,28 +50,28 @@ class OocParser
   
   rule(:product) { productLogicalNot | productBinaryNot | productCore }
   
-  rule(:productLogicalNot) { l_not >> hyphen >> product >> hyphen }
-  rule(:productBinaryNot ) { b_not >> hyphen >> product >> hyphen }
+  rule(:productLogicalNot) { l_not >> _ >> product >> _ }
+  rule(:productBinaryNot ) { b_not >> _ >> product >> _ }
   
   rule(:productCore) { access >>
                             (exp      >> ws >> product |
                              star     >> ws >> access  |
                              slash    >> ws >> access  ).repeat(0) }
   
-  rule(:access) {  ((ident_core >> str('&') >> !match('[&=]') >> hyphen) | # special case: blah& is always a reference. blah & blih is a binary and.
+  rule(:access) {  ((ident_core >> str('&') >> !match('[&=]') >> _) | # special case: blah& is always a reference. blah & blih is a binary and.
                        value) >>
-                        ((hyphen >> str('[') >> expr >>
-                          (str(',') >> ws >> expr >> hyphen).repeat(0) >> hyphen >> str(']') >> hyphen) |
-                        hyphen >> functionCall                                                             |
-                        hyphen >> ident_core                                                               |
-                        hyphen >> as_kw >> hyphen >> type                                                  |
-                        str('&') >> (!match('[&=]') >> hyphen >> match('&([ \t\r\n;,)}]') | ']')           |
-                        str('@')                                                                           |
-                        hyphen >> functionCallNoname                                                       ).repeat(0) >> hyphen }
+                        ((_ >> str('[') >> expr >>
+                          (str(',') >> ws >> expr >> _).repeat(0) >> _ >> str(']') >> _)    |
+                        _ >> functionCall                                                   |
+                        _ >> ident_core                                                     |
+                        _ >> as_kw >> _ >> type                                             |
+                        str('&') >> (!match('[&=]') >> _ >> match('&([ \t\r\n;,)}]') | ']') |
+                        str('@')                                                            |
+                        _ >> functionCallNoname                                             ).repeat(0) >> _ }
   
   rule(:functionCall) { ident >> functionCallCore }
   
-  rule(:functionCallCore) { (b_not >> hyphen >> ident).maybe >> str('(') >> ws >> (expr | acs) >> (ws >> str(',') >> ws >> (expr | acs).repeat(0)).maybe >> ws >> str(')') }
+  rule(:functionCallCore) { (b_not >> _ >> ident).maybe >> str('(') >> ws >> (expr | acs) >> (ws >> str(',') >> ws >> (expr | acs).repeat(0)).maybe >> ws >> str(')') }
   
   rule(:functionCallNoname) { functionCallCore }
   
@@ -79,9 +79,9 @@ class OocParser
 
   rule(:variableAccess) { ident_core }
 
-  rule(:value  ) { (str('-') >> hyphen >> str('(') >> ws >> expr >> ws >> str(')') >> hyphen)                 |
-                   (str('-') >> hyphen  >> valueCore)                                                       |
-                   (str('(') >> ws >> expr >> ws >> str(')') >> (str('&') >> !match('[&=]')).maybe >> hyphen) |
+  rule(:value  ) { (str('-') >> _ >> str('(') >> ws >> expr >> ws >> str(')') >> _)                 |
+                   (str('-') >> _  >> valueCore)                                                       |
+                   (str('(') >> ws >> expr >> ws >> str(')') >> (str('&') >> !match('[&=]')).maybe >> _) |
                    valueCore }
   
   rule(:arrayLiteral) { str('[') >> ws >> (

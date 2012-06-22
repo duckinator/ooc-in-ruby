@@ -28,4 +28,15 @@ class OocParser
   rule(:valueCore) { oct_lit | hex_lit | bin_lit | float_lit | dec_lit | string_lit | char_lit | bool_lit |
                      match | (null_kw >> match('&[^A-Za-z_]') >> hyphen) | arrayLiteral | tuple | functionCall |
                      genericType | variableAccess }
+
+  # Comments
+
+  rule(:comment_multiline)     { str('/*')  >> (!match('^\*\/')).repeat(1) >> star >> slash }
+  rule(:doc_comment_multiline) { str('/**') >> (!match('^\*\/')).repeat(1) >> star >> slash }
+
+  rule(:comment_line)     { str('//')  >> (!eol).repeat(1) >> eol }
+  rule(:doc_comment_line) { str('///') >> (!eol).repeat(1) >> eol }
+
+  rule(:doc_comment) { doc_comment_line | doc_comment_multiline }
+  rule(:comment)     { comment_line | comment_multiline | doc_comment }
 end

@@ -32,11 +32,11 @@ class OocParser
   # Comments
 
   rule(:comment_multiline)     { str('/*')  >> (!match('^\*\/')).repeat(1) >> star >> slash }
-  rule(:doc_comment_multiline) { str('/**') >> (!match('^\*\/')).repeat(1) >> star >> slash }
+  rule(:oocDocMultiLine) { str('/**') >> (!match('^\*\/')).repeat(1) >> star >> slash }
 
   rule(:comment_line)     { str('//')  >> (!eol).repeat(1) >> eol }
-  rule(:doc_comment_line) { str('///') >> (!eol).repeat(1) >> eol }
+  rule(:oocDocLine) { str('///') >> (!eol).repeat(1) >> eol }
 
-  rule(:doc_comment) { doc_comment_line | doc_comment_multiline }
+  rule(:oocDoc) { oocDocLine | oocDocMultiLine }
   rule(:comment)     { comment_line | comment_multiline | doc_comment }
 end

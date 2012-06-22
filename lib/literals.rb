@@ -9,7 +9,6 @@ class OocParser
   rule(:float_lit) { str("-").maybe >> number >> dot >> number >> hyphen }
   rule(:dec_lit)   { str("-").maybe >> number >> hyphen }
   
-  # IDENT        = i:IDENT_CORE -
   rule(:ident)      { indent_core >> hyphen }
   rule(:ident_core) { !(kw !match('[A-Za-z0-9_]')) >> match('[a-zA-Z_][0-9a-zA-Z_]').repeat(0) >> (str('?') | str('!')).maybe }
                  

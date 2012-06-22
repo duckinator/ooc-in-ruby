@@ -9,7 +9,7 @@ class OocParser < Parslet::Parser
   rule(:terminator) { commentLine | (commentMultiLine.maybe (eol | ';')) }
   rule(:ws) { (match('[ \t]') | comment | eol).repeat(0) }
 
-  %w[symbols keywords].each do |file|
+  %w[symbols keywords comments literals].each do |file|
     load File.join(File.dirname(__FILE__), 'lib', file + '.rb')
   end
 

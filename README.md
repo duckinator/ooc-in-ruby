@@ -14,9 +14,11 @@ Good news: this means I should be albe to get away with `./get-nagaqueen.sh && .
 
 Here's all the files related to generating the shitton of C and compiling it all.
 
-* `./get-nagaqueen.sh`: tries to find NagaQueen.c, copies it to ./nagaqueen/nagaqueen.c
-* `./generate-boilerplate.rb`: generates approximately 960 lines of ruby/C interop boilerplate in ./nagaqueen/boilerplate.h
+* `./util/get-nagaqueen.sh`: tries to find NagaQueen.c, copies it to ./nagaqueen/nagaqueen.c.
+* `./util/generate-boilerplate.rb`: generates approximately 960 lines of ruby/C interop boilerplate in ./nagaqueen/boilerplate.h.
+* `./util/generate-nagaqueen-boilerplate.rb`: generates approximately 590 lines of ruby/C interop boilerplate in ./lib/nagaqueen-methods.rb.
 * `./build.rb`: builds this monstrous thing.
+* `./test.rb`: test this monstrous thing.
 
 
-In most cases, all you should need is `./build.rb`.
+In most cases, all you should need is `./build.rb` and `./test.rb`.

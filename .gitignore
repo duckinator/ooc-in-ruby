@@ -1,1 +1,3 @@
 nagaqueen/Makefile
+*.o
+*.so

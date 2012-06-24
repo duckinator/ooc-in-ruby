@@ -14,5 +14,6 @@ require './extconf.rb'
 
 make = ARGV[0] || 'make'
 
+`#{make} clean`
 `#{make} nagaqueen.so`
 

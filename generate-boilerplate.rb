@@ -4,7 +4,7 @@ require 'pp'
 
 # void nq_setTokenPositionPointer(void *this, int *tokenPosPointer);
 
-def func(type, fname, args)
+def func(ftype, fname, args)
   args.map! do |x|
     type, name = x
     type = case type
@@ -40,16 +40,16 @@ def func(type, fname, args)
   end
 
   <<EOF
-#{type} nq_#{fname} (#{def_args.join(', ')})
+#{ftype} nq_#{fname} (#{def_args.join(', ')})
 {
-  rb_funcall(cNagaqueen, rb_intern("#{fname}"), #{call_args.join(', ')});
+  rb_funcall(cNagaqueen, rb_intern("#{fname}"), #{call_args.length}, #{call_args.join(', ')});
 }
 
 EOF
 end
 
 def generate_code(line)
-  if line =~ /^([^ ]*(?: )\*?)nq_(.*)\((.*)\);/
+  if line =~ /^\/\/([^ ]*(?: )\*?)nq_(.*)\((.*)\);/
     type, name, args = $1, $2, $3
 
     args.gsub!(' *', '* ')
@@ -63,13 +63,14 @@ def generate_code(line)
   end
 end
 
-nq="./nagaqueen/nagaqueen.c"
-bpc="./nagaqueen/boilerplate.h"
+nq="./nagaqueen/nagaqueen.h"
+bph="./nagaqueen/boilerplate.h"
 
 boilerplate = open(nq).read.each_line.map do |line|
   next unless line =~ /(void|char) .*nq_/
   generate_code(line)
 end.join('')
 
-File.open(bpc, 'w') {|f| f.puts boilerplate }
+File.open(bph, 'w') {|f| f.puts boilerplate }
+
 

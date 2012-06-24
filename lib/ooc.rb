@@ -16,9 +16,9 @@ class Nagaqueen
     @filename = filename
   end
 
-  def setTokenPositionPointer(tokenPos)
-    p tokenPos
-  end
+#  def setTokenPositionPointer(tokenPos)
+#    p tokenPos
+#  end
 end
 
 nq = Nagaqueen.new(File.join(dir, '..', 'test', 'test.ooc'))

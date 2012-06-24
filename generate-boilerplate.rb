@@ -50,29 +50,10 @@ def func(ftype, fname, args)
     end
   end
 
-  callee, callee_type, callee_str = nil
-
-  if def_args.include?('void* self')
-    # It's an istance method
-    callee = '(VALUE)(self)'
-    callee_type = 'Object'
-    callee_str = 'tmp'
-  else
-    # It's a class method
-    callee = 'cNagaqueen'
-    callee_type = 'Class'
-    callee_str = "\"#{callee}:#{callee_type}\""
-  end
-
   <<EOF
 #{ftype} nq_#{fname} (#{def_args.join(', ')})
 {
-  if(rb_funcall(#{callee}, rb_intern("respond_to?"), 1, rb_str_new2("#{fname}"))) {
-    rb_funcall(#{callee}, rb_intern("#{fname}"), #{call_args.length}, #{call_args.join(', ')});
-  } else {
-    VALUE tmp = rb_funcall(#{callee}, rb_intern("inspect"), 0);
-    rb_raise(rb_intern("NameError"), "undefined method `#{fname}' for ", STR2CSTR(#{callee_str}));
-  }
+  rb_funcall(cNagaqueen, rb_intern("#{fname}"), #{call_args.length}, #{call_args.join(', ')});
 }
 
 EOF

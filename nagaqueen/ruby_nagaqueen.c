@@ -37,16 +37,16 @@ int _nq_parse(VALUE self, char *path) {
 
 VALUE rb_nq_parse(VALUE self) {
   int ret;
-  VALUE filename = rb_iv_get(self, "@filename");
+  VALUE filename = rb_cv_get(self, "@@filename");
 
-  ast = rb_iv_get(self, "@ast");
+  ast = rb_cv_get(self, "@@ast");
   ret = _nq_parse(self, StringValueCStr(filename));
 
   return (ret == 0 ? Qtrue : Qfalse);
 }
 
 void Init_nagaqueen() {
-  cNagaqueen = rb_define_class("Nagaqueen", rb_cObject);
-  rb_define_method(cNagaqueen, "parse", rb_nq_parse, 0);
+  cNagaqueen = rb_define_module("Nagaqueen");
+  rb_define_module_function(cNagaqueen, "_parse", rb_nq_parse, 0);
 }
 

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DIR=$(dirname $(readlink -f $0))
+DIR=$(dirname $(readlink -f $0))/..
 
 if [ -z "$ROCK_DIST" ]; then
   if [ -d "../rock" ]; then

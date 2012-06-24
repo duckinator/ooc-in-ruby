@@ -75,8 +75,10 @@ def generate_code(line)
   end
 end
 
-nq="./nagaqueen/nagaqueen.h"
-bph="./nagaqueen/boilerplate.h"
+dir = File.expand_path(File.dirname(__FILE__))
+
+nq=File.join(dir, '..', 'nagaqueen', 'nagaqueen.h')
+bph=File.join(dir, '..', 'nagaqueen', 'boilerplate.h')
 
 boilerplate = open(nq).read.each_line.map do |line|
   next unless line =~ /(void|char) .*nq_/

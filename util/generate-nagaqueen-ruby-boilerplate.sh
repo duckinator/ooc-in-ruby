@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DIR=$(dirname $(readlink -f $0))
+DIR=$(dirname $(readlink -f $0))/..
 
 FILE=$DIR/lib/nagaqueen-methods.rb
 
@@ -19,7 +19,7 @@ echo "
 echo 'module Nagaqueen' >> $FILE
 echo '  class << self' >> $FILE
 
-cat nagaqueen/boilerplate.h |grep -E '^[a-z]' | sed 's/ \* /\* /' | cut -d' ' -f2- | sed 's/^ //' | sed 's/void\* self/_/' | sed -r 's/(void\*|char\*|char|int\*|int|bool|_Bool) //g' | sed 's/nq_//' | sed 's/^/    def /' | sed 's/$/\n    end\n/' >> $FILE
+cat $DIR/nagaqueen/boilerplate.h |grep -E '^[a-z]' | sed 's/ \* /\* /' | cut -d' ' -f2- | sed 's/^ //' | sed 's/void\* self/_/' | sed -r 's/(void\*|char\*|char|int\*|int|bool|_Bool) //g' | sed 's/nq_//' | sed 's/^/    def /' | sed 's/$/\n    end\n/' >> $FILE
 
 echo '  end' >> $FILE
 echo 'end' >> $FILE

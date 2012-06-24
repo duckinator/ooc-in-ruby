@@ -2,7 +2,6 @@
 
 dir = File.expand_path(File.dirname(__FILE__))
 
-require 'pp'
 require File.join(File.expand_path(File.dirname(__FILE__)), 'nagaqueen')
 
 # Once all the types in nagaqueen/boilerplate.h are handled properly,
@@ -31,11 +30,10 @@ module Nagaqueen
     def parse(filename)
       @@ast = nil
       @@filename = filename
+      _parse
     end
   end
 end
 
 require File.join(File.expand_path(File.dirname(__FILE__)), 'nagaqueen-methods')
 
-nq = Nagaqueen.parse(File.join(dir, '..', 'test', 'test.ooc'))
-Nagaqueen._parse

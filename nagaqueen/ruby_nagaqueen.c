@@ -38,14 +38,14 @@ int _nq_parse(VALUE self, char *path) {
 VALUE rb_nq_init(VALUE self, VALUE filename) {
   int ret;
 
-  ast = rb_cv_get(self, "@@ast");
-  ret = _nq_parse(self, STR2CSTR(filename));
+  ast = rb_iv_get(self, "@ast");
+  ret = _nq_parse(self, StringValuePtr(filename));
 
   return (ret == 0 ? Qtrue : Qfalse);
 }
 
 void Init_nagaqueen() {
   cNagaqueen = rb_define_class("Nagaqueen", rb_cObject);
-  rb_define_method(cNagaqueen, "initialize", rb_nq_init, 0);
+  rb_define_method(cNagaqueen, "initialize", rb_nq_init, 1);
 }
 

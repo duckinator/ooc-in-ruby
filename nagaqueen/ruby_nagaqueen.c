@@ -44,7 +44,7 @@ VALUE rb_nq_init(VALUE self, VALUE filename) {
   return (ret == 0 ? Qtrue : Qfalse);
 }
 
-void Init_Nagaqueen() {
+void Init_nagaqueen() {
   cNagaqueen = rb_define_class("Nagaqueen", rb_cObject);
   rb_define_method(cNagaqueen, "initialize", rb_nq_init, 0);
 }

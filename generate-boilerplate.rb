@@ -5,6 +5,7 @@ require 'pp'
 # void nq_setTokenPositionPointer(void *this, int *tokenPosPointer);
 
 def func(ftype, fname, args)
+=begin
   args.map! do |x|
     type, name = x
     type = case type
@@ -17,6 +18,7 @@ def func(ftype, fname, args)
 
     [type, name]
   end
+=end
 
   def_args = args.map do |x|
     if x.is_a?(Array)
@@ -27,6 +29,11 @@ def func(ftype, fname, args)
   end
 
   call_args = args.map do |type, name|
+    # Should work: https://github.com/ruby/ruby/blob/trunk/README.EXT#L140
+    if name == 'self'
+      name = '(VALUE)(self)'
+    end
+
     case type
     when 'int'
       "INT2NUM(#{name})"
@@ -56,7 +63,8 @@ def generate_code(line)
     args = args.split(',').map(&:strip).map(&:split)
 
     # Switch 'void *this' with 'VALUE self'
-    args[0] = ['VALUE', 'self'] if args[0][1] == 'this'
+    #args[0] = ['VALUE', 'self'] if args[0][1] == 'this'
+    args[0][1] = 'self' if args[0][1] == 'this'
 
     #pp [type, name, args]
     func(type, name, args)

@@ -21,7 +21,7 @@ int _nq_parse(VALUE self, char *path) {
     core->this = &self;
     core->path = path;
     core->stream = fopen(path, "r");
-    nq_setTokenPositionPointer(self, core->token);
+    nq_setTokenPositionPointer(core->this, core->token);
     if(!core->stream) {
         printf("Not found: %s\n", path);
         return -1;
@@ -35,17 +35,18 @@ int _nq_parse(VALUE self, char *path) {
     return 0;
 }
 
-VALUE rb_nq_init(VALUE self, VALUE filename) {
+VALUE rb_nq_parse(VALUE self) {
   int ret;
+  VALUE filename = rb_iv_get(self, "@filename");
 
   ast = rb_iv_get(self, "@ast");
-  ret = _nq_parse(self, StringValuePtr(filename));
+  ret = _nq_parse(self, StringValueCStr(filename));
 
   return (ret == 0 ? Qtrue : Qfalse);
 }
 
 void Init_nagaqueen() {
   cNagaqueen = rb_define_class("Nagaqueen", rb_cObject);
-  rb_define_method(cNagaqueen, "initialize", rb_nq_init, 1);
+  rb_define_method(cNagaqueen, "parse", rb_nq_parse, 0);
 }
 

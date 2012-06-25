@@ -11,7 +11,7 @@
 
 module Nagaqueen
   class << self
-#    def setTokenPositionPointer (this, tokenPosPointer)
+#    def setTokenPositionPointer (tokenPosPointer)
 #    end
 
 #    def StringClone (string)
@@ -23,568 +23,568 @@ module Nagaqueen
 #    def trailingBang (string)
 #    end
 
-#    def onUse (this, name)
+#    def onUse (name)
 #    end
 
-#    def onInclude (this, path)
+#    def onInclude (path)
 #    end
 
-#    def onIncludeDefine (this, name, value)
+#    def onIncludeDefine (name, value)
 #    end
 
-#    def onImport (this, path, name)
+#    def onImport (path, name)
 #    end
 
-#    def onImportNamespace (this, namespace, quantity)
+#    def onImportNamespace (namespace, quantity)
 #    end
 
-#    def onVersionName (this, name)
+#    def onVersionName (name)
 #    end
 
-#    def onVersionNegation (this, spec)
+#    def onVersionNegation (spec)
 #    end
 
-#    def onVersionAnd (this, specLeft, specRight)
+#    def onVersionAnd (specLeft, specRight)
 #    end
 
-#    def onVersionOr (this, specLeft, specRight)
+#    def onVersionOr (specLeft, specRight)
 #    end
 
-#    def onVersionStart (this, spec)
+#    def onVersionStart (spec)
 #    end
 
-#    def onVersionElseIfStart (this, notSpec, elseSpec)
+#    def onVersionElseIfStart (notSpec, elseSpec)
 #    end
 
-#    def onVersionElseStart (this, notSpec)
+#    def onVersionElseStart (notSpec)
 #    end
 
-#    def onVersionEnd (this)
+#    def onVersionEnd
 #    end
 
-#    def onExtendStart (this, type, doc)
+#    def onExtendStart (type, doc)
 #    end
 
-#    def onExtendEnd (this)
+#    def onExtendEnd
 #    end
 
-#    def onCoverStart (this, name, doc)
+#    def onCoverStart (name, doc)
 #    end
 
-#    def onCoverExtern (this, externName)
+#    def onCoverExtern (externName)
 #    end
 
-#    def onCoverFromType (this, type)
+#    def onCoverFromType (type)
 #    end
 
-#    def onCoverExtends (this, type)
+#    def onCoverExtends (type)
 #    end
 
-#    def onCoverImplements (this, type)
+#    def onCoverImplements (type)
 #    end
 
-#    def onCoverEnd (this)
+#    def onCoverEnd
 #    end
 
-#    def onEnumStart (this, name, doc)
+#    def onEnumStart (name, doc)
 #    end
 
-#    def onEnumExtern (this, externName)
+#    def onEnumExtern (externName)
 #    end
 
-#    def onEnumFromType (this, fromType)
+#    def onEnumFromType (fromType)
 #    end
 
-#    def onEnumIncrementExpr (this, oper, step)
+#    def onEnumIncrementExpr (oper, step)
 #    end
 
-#    def onEnumElementStart (this, name, doc)
+#    def onEnumElementStart (name, doc)
 #    end
 
-#    def onEnumElementValue (this, value)
+#    def onEnumElementValue (value)
 #    end
 
-#    def onEnumElementExtern (this, externName)
+#    def onEnumElementExtern (externName)
 #    end
 
-#    def onEnumElementEnd (this)
+#    def onEnumElementEnd
 #    end
 
-#    def onEnumEnd (this)
+#    def onEnumEnd
 #    end
 
-#    def onClassStart (this, name, doc)
+#    def onClassStart (name, doc)
 #    end
 
-#    def onClassAbstract (this)
+#    def onClassAbstract
 #    end
 
-#    def onClassFinal (this)
+#    def onClassFinal
 #    end
 
-#    def onClassExtends (this, type)
+#    def onClassExtends (type)
 #    end
 
-#    def onClassImplements (this, type)
+#    def onClassImplements (type)
 #    end
 
-#    def onClassBody (this)
+#    def onClassBody
 #    end
 
-#    def onClassEnd (this)
+#    def onClassEnd
 #    end
 
-#    def onInterfaceStart (this, name, doc)
+#    def onInterfaceStart (name, doc)
 #    end
 
-#    def onInterfaceExtends (this, type)
+#    def onInterfaceExtends (type)
 #    end
 
-#    def onInterfaceEnd (this)
+#    def onInterfaceEnd
 #    end
 
-#    def onPropertyDeclStart (this, name, doc)
+#    def onPropertyDeclStart (name, doc)
 #    end
 
-#    def onPropertyDeclStatic (this)
+#    def onPropertyDeclStatic
 #    end
 
-#    def onPropertyDeclType (this, type)
+#    def onPropertyDeclType (type)
 #    end
 
-#    def onPropertyDeclEnd (this)
+#    def onPropertyDeclEnd
 #    end
 
-#    def onPropertyDeclGetterStart (this, doc)
+#    def onPropertyDeclGetterStart (doc)
 #    end
 
-#    def onPropertyDeclGetterEnd (this)
+#    def onPropertyDeclGetterEnd
 #    end
 
-#    def onPropertyDeclSetterStart (this, doc)
+#    def onPropertyDeclSetterStart (doc)
 #    end
 
-#    def onPropertyDeclSetterArgument (this, name, conventional)
+#    def onPropertyDeclSetterArgument (name, conventional)
 #    end
 
-#    def onPropertyDeclSetterEnd (this)
+#    def onPropertyDeclSetterEnd
 #    end
 
-#    def onVarDeclStart (this)
+#    def onVarDeclStart
 #    end
 
-#    def onVarDeclName (this, name, doc)
+#    def onVarDeclName (name, doc)
 #    end
 
-#    def onVarDeclTuple (this, tuple)
+#    def onVarDeclTuple (tuple)
 #    end
 
-#    def onVarDeclExtern (this, externName)
+#    def onVarDeclExtern (externName)
 #    end
 
-#    def onVarDeclUnmangled (this, unmangledName)
+#    def onVarDeclUnmangled (unmangledName)
 #    end
 
-#    def onVarDeclExpr (this, expr)
+#    def onVarDeclExpr (expr)
 #    end
 
-#    def onVarDeclType (this, type)
+#    def onVarDeclType (type)
 #    end
 
-#    def onVarDeclStatic (this)
+#    def onVarDeclStatic
 #    end
 
-#    def onVarDeclConst (this)
+#    def onVarDeclConst
 #    end
 
-#    def onVarDeclProto (this)
+#    def onVarDeclProto
 #    end
 
-#    def onVarDeclEnd (this)
+#    def onVarDeclEnd
 #    end
 
-#    def onTypeAccess (this, type)
+#    def onTypeAccess (type)
 #    end
 
-#    def onTypeNew (this, name)
+#    def onTypeNew (name)
 #    end
 
-#    def onTypePointer (this, type)
+#    def onTypePointer (type)
 #    end
 
-#    def onTypeReference (this, type)
+#    def onTypeReference (type)
 #    end
 
-#    def onTypeBrackets (this, type, inner)
+#    def onTypeBrackets (type, inner)
 #    end
 
-#    def onTypeGenericArgument (this, type, genType)
+#    def onTypeGenericArgument (type, genType)
 #    end
 
-#    def onFuncTypeGenericArgument (this, type, name)
+#    def onFuncTypeGenericArgument (type, name)
 #    end
 
-#    def onTypeList (this)
+#    def onTypeList
 #    end
 
-#    def onTypeListElement (this, list, elem)
+#    def onTypeListElement (list, elem)
 #    end
 
-#    def onTypeNamespace (this, type, ident)
+#    def onTypeNamespace (type, ident)
 #    end
 
-#    def onFuncTypeNew (this)
+#    def onFuncTypeNew
 #    end
 
-#    def onFuncTypeArgument (this, funcType, argType)
+#    def onFuncTypeArgument (funcType, argType)
 #    end
 
-#    def onFuncTypeVarArg (this, funcType)
+#    def onFuncTypeVarArg (funcType)
 #    end
 
-#    def onFuncTypeReturnType (this, funcType, returnType)
+#    def onFuncTypeReturnType (funcType, returnType)
 #    end
 
-#    def onOperatorStart (this, symbol)
+#    def onOperatorStart (symbol)
 #    end
 
-#    def onOperatorEnd (this)
+#    def onOperatorEnd
 #    end
 
-#    def onFunctionStart (this, name, doc)
+#    def onFunctionStart (name, doc)
 #    end
 
-#    def onFunctionExtern (this, externName)
+#    def onFunctionExtern (externName)
 #    end
 
-#    def onFunctionUnmangled (this, unmangledName)
+#    def onFunctionUnmangled (unmangledName)
 #    end
 
-#    def onFunctionAbstract (this)
+#    def onFunctionAbstract
 #    end
 
-#    def onFunctionThisRef (this)
+#    def onFunctionThisRef
 #    end
 
-#    def onFunctionArgsStart (this)
+#    def onFunctionArgsStart
 #    end
 
-#    def onFunctionArgsEnd (this)
+#    def onFunctionArgsEnd
 #    end
 
-#    def onFunctionReturnType (this, type)
+#    def onFunctionReturnType (type)
 #    end
 
-#    def onFunctionConst (this)
+#    def onFunctionConst
 #    end
 
-#    def onFunctionStatic (this)
+#    def onFunctionStatic
 #    end
 
-#    def onFunctionInline (this)
+#    def onFunctionInline
 #    end
 
-#    def onFunctionFinal (this)
+#    def onFunctionFinal
 #    end
 
-#    def onFunctionProto (this)
+#    def onFunctionProto
 #    end
 
-#    def onFunctionSuper (this)
+#    def onFunctionSuper
 #    end
 
-#    def onFunctionSuffix (this, name)
+#    def onFunctionSuffix (name)
 #    end
 
-#    def onFunctionBody (this)
+#    def onFunctionBody
 #    end
 
-#    def onFunctionEnd (this)
+#    def onFunctionEnd
 #    end
 
-#    def onTypeArg (this, type)
+#    def onTypeArg (type)
 #    end
 
-#    def onVarArg (this, name)
+#    def onVarArg (name)
 #    end
 
-#    def onDotArg (this, name)
+#    def onDotArg (name)
 #    end
 
-#    def onAssArg (this, name)
+#    def onAssArg (name)
 #    end
 
-#    def onFunctionCallStart (this, yytext)
+#    def onFunctionCallStart (yytext)
 #    end
 
-#    def onFunctionCallSuffix (this, yytext)
+#    def onFunctionCallSuffix (yytext)
 #    end
 
-#    def onFunctionCallArg (this, expr)
+#    def onFunctionCallArg (expr)
 #    end
 
-#    def onFunctionCallEnd (this)
+#    def onFunctionCallEnd
 #    end
 
-#    def onFunctionCallExpr (this, call, expr)
+#    def onFunctionCallExpr (call, expr)
 #    end
 
-#    def onFunctionCallChain (this, expr, call)
+#    def onFunctionCallChain (expr, call)
 #    end
 
-#    def onFunctionCallCombo (this, call, expr)
+#    def onFunctionCallCombo (call, expr)
 #    end
 
-#    def onArrayLiteralStart (this)
+#    def onArrayLiteralStart
 #    end
 
-#    def onArrayLiteralEnd (this)
+#    def onArrayLiteralEnd
 #    end
 
-#    def onTupleStart (this)
+#    def onTupleStart
 #    end
 
-#    def onTupleEnd (this)
+#    def onTupleEnd
 #    end
 
-#    def onStringLiteral (this, text)
+#    def onStringLiteral (text)
 #    end
 
-#    def onCharLiteral (this, value)
+#    def onCharLiteral (value)
 #    end
 
-#    def onStatement (this, statement)
+#    def onStatement (statement)
 #    end
 
-#    def onReturn (this, expr)
+#    def onReturn (expr)
 #    end
 
-#    def onVarAccess (this, expr, name)
+#    def onVarAccess (expr, name)
 #    end
 
-#    def onArrayAccessStart (this, array)
+#    def onArrayAccessStart (array)
 #    end
 
-#    def onArrayAccessEnd (this)
+#    def onArrayAccessEnd
 #    end
 
-#    def onCast (this, expr, type)
+#    def onCast (expr, type)
 #    end
 
-#    def onBreak (this)
+#    def onBreak
 #    end
 
-#    def onContinue (this)
+#    def onContinue
 #    end
 
-#    def onBlockStart (this)
+#    def onBlockStart
 #    end
 
-#    def onBlockEnd (this)
+#    def onBlockEnd
 #    end
 
-#    def onIfStart (this, condition)
+#    def onIfStart (condition)
 #    end
 
-#    def onIfEnd (this)
+#    def onIfEnd
 #    end
 
-#    def onElseStart (this)
+#    def onElseStart
 #    end
 
-#    def onElseEnd (this)
+#    def onElseEnd
 #    end
 
-#    def onForeachStart (this, decl, collec)
+#    def onForeachStart (decl, collec)
 #    end
 
-#    def onForeachEnd (this)
+#    def onForeachEnd
 #    end
 
-#    def onWhileStart (this, condition)
+#    def onWhileStart (condition)
 #    end
 
-#    def onWhileEnd (this)
+#    def onWhileEnd
 #    end
 
-#    def onEquals (this, left, right)
+#    def onEquals (left, right)
 #    end
 
-#    def onNotEquals (this, left, right)
+#    def onNotEquals (left, right)
 #    end
 
-#    def onLessThan (this, left, right)
+#    def onLessThan (left, right)
 #    end
 
-#    def onMoreThan (this, left, right)
+#    def onMoreThan (left, right)
 #    end
 
-#    def onCmp (this, left, right)
+#    def onCmp (left, right)
 #    end
 
-#    def onLessThanOrEqual (this, left, right)
+#    def onLessThanOrEqual (left, right)
 #    end
 
-#    def onMoreThanOrEqual (this, left, right)
+#    def onMoreThanOrEqual (left, right)
 #    end
 
-#    def onDecLiteral (this, value)
+#    def onDecLiteral (value)
 #    end
 
-#    def onBinLiteral (this, value)
+#    def onBinLiteral (value)
 #    end
 
-#    def onOctLiteral (this, value)
+#    def onOctLiteral (value)
 #    end
 
-#    def onHexLiteral (this, value)
+#    def onHexLiteral (value)
 #    end
 
-#    def onFloatLiteral (this, value)
+#    def onFloatLiteral (value)
 #    end
 
-#    def onBoolLiteral (this, value)
+#    def onBoolLiteral (value)
 #    end
 
-#    def onNull (this)
+#    def onNull
 #    end
 
-#    def onDoubleArrow (this, left, right)
+#    def onDoubleArrow (left, right)
 #    end
 
-#    def onTernary (this, condition, ifTrue, ifFalse)
+#    def onTernary (condition, ifTrue, ifFalse)
 #    end
 
-#    def onAssignAnd (this, left, right)
+#    def onAssignAnd (left, right)
 #    end
 
-#    def onAssignOr (this, left, right)
+#    def onAssignOr (left, right)
 #    end
 
-#    def onAssignXor (this, left, right)
+#    def onAssignXor (left, right)
 #    end
 
-#    def onAssignRightShift (this, left, right)
+#    def onAssignRightShift (left, right)
 #    end
 
-#    def onAssignLeftShift (this, left, right)
+#    def onAssignLeftShift (left, right)
 #    end
 
-#    def onAssignDiv (this, left, right)
+#    def onAssignDiv (left, right)
 #    end
 
-#    def onAssignMul (this, left, right)
+#    def onAssignMul (left, right)
 #    end
 
-#    def onAssignExp (this, left, right)
+#    def onAssignExp (left, right)
 #    end
 
-#    def onAssignSub (this, left, right)
+#    def onAssignSub (left, right)
 #    end
 
-#    def onAssignAdd (this, left, right)
+#    def onAssignAdd (left, right)
 #    end
 
-#    def onAssign (this, left, right)
+#    def onAssign (left, right)
 #    end
 
-#    def onAdd (this, left, right)
+#    def onAdd (left, right)
 #    end
 
-#    def onSub (this, left, right)
+#    def onSub (left, right)
 #    end
 
-#    def onMod (this, left, right)
+#    def onMod (left, right)
 #    end
 
-#    def onMul (this, left, right)
+#    def onMul (left, right)
 #    end
 
-#    def onExp (this, left, right)
+#    def onExp (left, right)
 #    end
 
-#    def onDiv (this, left, right)
+#    def onDiv (left, right)
 #    end
 
-#    def onRangeLiteral (this, left, right)
+#    def onRangeLiteral (left, right)
 #    end
 
-#    def onBinaryLeftShift (this, left, right)
+#    def onBinaryLeftShift (left, right)
 #    end
 
-#    def onBinaryRightShift (this, left, right)
+#    def onBinaryRightShift (left, right)
 #    end
 
-#    def onLogicalOr (this, left, right)
+#    def onLogicalOr (left, right)
 #    end
 
-#    def onLogicalAnd (this, left, right)
+#    def onLogicalAnd (left, right)
 #    end
 
-#    def onBinaryOr (this, left, right)
+#    def onBinaryOr (left, right)
 #    end
 
-#    def onBinaryXor (this, left, right)
+#    def onBinaryXor (left, right)
 #    end
 
-#    def onBinaryAnd (this, left, right)
+#    def onBinaryAnd (left, right)
 #    end
 
-#    def onLogicalNot (this, inner)
+#    def onLogicalNot (inner)
 #    end
 
-#    def onBinaryNot (this, inner)
+#    def onBinaryNot (inner)
 #    end
 
-#    def onUnaryMinus (this, inner)
+#    def onUnaryMinus (inner)
 #    end
 
-#    def onParenthesis (this, inner)
+#    def onParenthesis (inner)
 #    end
 
-#    def onGenericArgument (this, name)
+#    def onGenericArgument (name)
 #    end
 
-#    def onAddressOf (this, inner)
+#    def onAddressOf (inner)
 #    end
 
-#    def onDereference (this, inner)
+#    def onDereference (inner)
 #    end
 
-#    def onMatchStart (this)
+#    def onMatchStart
 #    end
 
-#    def onMatchExpr (this, value)
+#    def onMatchExpr (value)
 #    end
 
-#    def onMatchEnd (this)
+#    def onMatchEnd
 #    end
 
-#    def onCaseStart (this)
+#    def onCaseStart
 #    end
 
-#    def onCaseExpr (this, value)
+#    def onCaseExpr (value)
 #    end
 
-#    def onCaseEnd (this)
+#    def onCaseEnd
 #    end
 
-#    def onTryStart (this)
+#    def onTryStart
 #    end
 
-#    def onTryEnd (this)
+#    def onTryEnd
 #    end
 
-#    def onCatchStart (this)
+#    def onCatchStart
 #    end
 
-#    def onCatchExpr (this, value)
+#    def onCatchExpr (value)
 #    end
 
-#    def onCatchEnd (this)
+#    def onCatchEnd
 #    end
 
-#    def error (this, errorID, defaultMessage, index)
+#    def error (errorID, defaultMessage, index)
 #    end
 
     def method_missing(name, *args)

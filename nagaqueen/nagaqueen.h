@@ -116,239 +116,239 @@ void yyInput(char *buf, int *result, int max_size, NagaQueenCore *core) {
 
 ///////////////////// callbacks def start, you may want to skip this ////////////////////////
 
-//void nq_setTokenPositionPointer(void *this, int *tokenPosPointer);
+void nq_setTokenPositionPointer(void *this, int *tokenPosPointer);
 
-//char *nq_StringClone(char *string);
-//char *nq_trailingQuest(char *string);
-//char *nq_trailingBang (char *string);
+char *nq_StringClone(char *string);
+char *nq_trailingQuest(char *string);
+char *nq_trailingBang (char *string);
 
-//void nq_onUse(void *this, char *name);
-//void nq_onInclude(void *this, char *path);
-//void nq_onIncludeDefine(void *this, char *name, char *value);
-//void nq_onImport (void *this, char *path, char *name);
-//void nq_onImportNamespace(void *this, char *namespace, int quantity);
+void nq_onUse(void *this, char *name);
+void nq_onInclude(void *this, char *path);
+void nq_onIncludeDefine(void *this, char *name, char *value);
+void nq_onImport (void *this, char *path, char *name);
+void nq_onImportNamespace(void *this, char *namespace, int quantity);
 
-//void *nq_onVersionName(void *this, char *name);
-//void *nq_onVersionNegation(void *this, void *spec);
-//void *nq_onVersionAnd(void *this, void *specLeft, void *specRight);
-//void *nq_onVersionOr(void *this, void *specLeft, void *specRight);
+void *nq_onVersionName(void *this, char *name);
+void *nq_onVersionNegation(void *this, void *spec);
+void *nq_onVersionAnd(void *this, void *specLeft, void *specRight);
+void *nq_onVersionOr(void *this, void *specLeft, void *specRight);
 
-//void nq_onVersionStart(void *this, void *spec);
-//void *nq_onVersionElseIfStart(void *this, void *notSpec, void *elseSpec);
-//void nq_onVersionElseStart(void *this, void *notSpec);
-//void *nq_onVersionEnd(void *this);
+void nq_onVersionStart(void *this, void *spec);
+void *nq_onVersionElseIfStart(void *this, void *notSpec, void *elseSpec);
+void nq_onVersionElseStart(void *this, void *notSpec);
+void *nq_onVersionEnd(void *this);
 
-//void nq_onExtendStart(void *this, void *type, char *doc);
-//void nq_onExtendEnd(void *this);
+void nq_onExtendStart(void *this, void *type, char *doc);
+void nq_onExtendEnd(void *this);
 
-//void nq_onCoverStart(void *this, char *name, char *doc);
-//void nq_onCoverExtern(void *this, char *externName);
-//void nq_onCoverFromType(void *this, void *type);
-//void nq_onCoverExtends(void *this, void *type);
-//void nq_onCoverImplements(void *this, void *type);
-//void nq_onCoverEnd(void *this);
+void nq_onCoverStart(void *this, char *name, char *doc);
+void nq_onCoverExtern(void *this, char *externName);
+void nq_onCoverFromType(void *this, void *type);
+void nq_onCoverExtends(void *this, void *type);
+void nq_onCoverImplements(void *this, void *type);
+void nq_onCoverEnd(void *this);
 
-//void nq_onEnumStart(void *this, char *name, char *doc);
-//void nq_onEnumExtern(void *this, char *externName);
-//void nq_onEnumFromType(void *this, void *fromType);
-//void nq_onEnumIncrementExpr(void *this, char oper, void *step);
-//void nq_onEnumElementStart(void *this, char *name, char *doc);
-//void nq_onEnumElementValue(void *this, void *value);
-//void nq_onEnumElementExtern(void *this, char *externName);
-//void nq_onEnumElementEnd(void *this);
-//void nq_onEnumEnd(void *this);
+void nq_onEnumStart(void *this, char *name, char *doc);
+void nq_onEnumExtern(void *this, char *externName);
+void nq_onEnumFromType(void *this, void *fromType);
+void nq_onEnumIncrementExpr(void *this, char oper, void *step);
+void nq_onEnumElementStart(void *this, char *name, char *doc);
+void nq_onEnumElementValue(void *this, void *value);
+void nq_onEnumElementExtern(void *this, char *externName);
+void nq_onEnumElementEnd(void *this);
+void nq_onEnumEnd(void *this);
 
-//void nq_onClassStart(void *this, char *name, char *doc);
-//void nq_onClassAbstract(void *this);
-//void nq_onClassFinal(void *this);
-//void nq_onClassExtends(void *this, void *type);
-//void nq_onClassImplements(void *this, void *type);
-//void nq_onClassBody(void *this);
-//void nq_onClassEnd(void *this);
+void nq_onClassStart(void *this, char *name, char *doc);
+void nq_onClassAbstract(void *this);
+void nq_onClassFinal(void *this);
+void nq_onClassExtends(void *this, void *type);
+void nq_onClassImplements(void *this, void *type);
+void nq_onClassBody(void *this);
+void nq_onClassEnd(void *this);
 
-//void nq_onInterfaceStart(void *this, char *name, char *doc);
-//void nq_onInterfaceExtends(void *this, void *type);
-//void nq_onInterfaceEnd(void *this);
+void nq_onInterfaceStart(void *this, char *name, char *doc);
+void nq_onInterfaceExtends(void *this, void *type);
+void nq_onInterfaceEnd(void *this);
 
-//void nq_onPropertyDeclStart(void *this, char *name, char *doc);
-//void nq_onPropertyDeclStatic(void *this);
-//void nq_onPropertyDeclType(void *this, void *type);
-//void *nq_onPropertyDeclEnd(void *this);
+void nq_onPropertyDeclStart(void *this, char *name, char *doc);
+void nq_onPropertyDeclStatic(void *this);
+void nq_onPropertyDeclType(void *this, void *type);
+void *nq_onPropertyDeclEnd(void *this);
 
-//void nq_onPropertyDeclGetterStart(void *this, char *doc);
-//void *nq_onPropertyDeclGetterEnd(void *this);
+void nq_onPropertyDeclGetterStart(void *this, char *doc);
+void *nq_onPropertyDeclGetterEnd(void *this);
 
-//void nq_onPropertyDeclSetterStart(void *this, char *doc);
-//void nq_onPropertyDeclSetterArgument(void *this, char *name, _Bool conventional);
-//void *nq_onPropertyDeclSetterEnd(void *this);
+void nq_onPropertyDeclSetterStart(void *this, char *doc);
+void nq_onPropertyDeclSetterArgument(void *this, char *name, _Bool conventional);
+void *nq_onPropertyDeclSetterEnd(void *this);
 
-//void nq_onVarDeclStart(void *this);
-//void nq_onVarDeclName(void *this, char *name, char *doc);
-//void nq_onVarDeclTuple(void *this, void *tuple);
-//void nq_onVarDeclExtern(void *this, char *externName);
-//void nq_onVarDeclUnmangled(void *this, char *unmangledName);
-//void nq_onVarDeclExpr(void *this, void *expr);
-//void nq_onVarDeclType(void *this, void *type);
-//void nq_onVarDeclStatic(void *this);
-//void nq_onVarDeclConst(void *this);
-//void nq_onVarDeclProto(void *this);
-//void *nq_onVarDeclEnd(void *this);
+void nq_onVarDeclStart(void *this);
+void nq_onVarDeclName(void *this, char *name, char *doc);
+void nq_onVarDeclTuple(void *this, void *tuple);
+void nq_onVarDeclExtern(void *this, char *externName);
+void nq_onVarDeclUnmangled(void *this, char *unmangledName);
+void nq_onVarDeclExpr(void *this, void *expr);
+void nq_onVarDeclType(void *this, void *type);
+void nq_onVarDeclStatic(void *this);
+void nq_onVarDeclConst(void *this);
+void nq_onVarDeclProto(void *this);
+void *nq_onVarDeclEnd(void *this);
 
-//void *nq_onTypeAccess(void *this, void *type);
+void *nq_onTypeAccess(void *this, void *type);
 
-//void *nq_onTypeNew(void *this, char *name);     // $$=nq_onTypeNew(yytext)
-//void *nq_onTypePointer(void *this, void *type);   // $$=nq_onTypePointer($$)
-//void *nq_onTypeReference(void *this, void *type); // $$=nq_onTypeReference($$)
-//void *nq_onTypeBrackets(void *this, void *type, void *inner); // $$=nq_onTypeBrackets($$, inner)
-//void nq_onTypeGenericArgument(void *this, void *type, void *genType);
-//void nq_onFuncTypeGenericArgument(void *this, void *type, char *name);
-//void *nq_onTypeList(void *this);
-//void *nq_onTypeListElement(void *this, void *list, void *elem);
-//void nq_onTypeNamespace(void *this, void *type, void *ident);
+void *nq_onTypeNew(void *this, char *name);     // $$=nq_onTypeNew(yytext)
+void *nq_onTypePointer(void *this, void *type);   // $$=nq_onTypePointer($$)
+void *nq_onTypeReference(void *this, void *type); // $$=nq_onTypeReference($$)
+void *nq_onTypeBrackets(void *this, void *type, void *inner); // $$=nq_onTypeBrackets($$, inner)
+void nq_onTypeGenericArgument(void *this, void *type, void *genType);
+void nq_onFuncTypeGenericArgument(void *this, void *type, char *name);
+void *nq_onTypeList(void *this);
+void *nq_onTypeListElement(void *this, void *list, void *elem);
+void nq_onTypeNamespace(void *this, void *type, void *ident);
 
-//void *nq_onFuncTypeNew(void *this);
-//void nq_onFuncTypeArgument(void *this, void *funcType, void *argType);
-//void nq_onFuncTypeVarArg(void *this, void *funcType);
-//void nq_onFuncTypeReturnType(void *this, void *funcType, void *returnType);
+void *nq_onFuncTypeNew(void *this);
+void nq_onFuncTypeArgument(void *this, void *funcType, void *argType);
+void nq_onFuncTypeVarArg(void *this, void *funcType);
+void nq_onFuncTypeReturnType(void *this, void *funcType, void *returnType);
 
-//void nq_onOperatorStart(void *this, char *symbol);
-//void nq_onOperatorEnd(void *this);
+void nq_onOperatorStart(void *this, char *symbol);
+void nq_onOperatorEnd(void *this);
 
-//void nq_onFunctionStart(void *this, char *name, char *doc);
-//void nq_onFunctionExtern(void *this, char *externName);
-//void nq_onFunctionUnmangled(void *this, char *unmangledName);
-//void nq_onFunctionAbstract(void *this);
-//void nq_onFunctionThisRef(void *this);
-//void nq_onFunctionArgsStart(void *this);
-//void nq_onFunctionArgsEnd(void *this);
-//void nq_onFunctionReturnType(void *this, void *type);
-//void nq_onFunctionConst(void *this);
-//void nq_onFunctionStatic(void *this);
-//void nq_onFunctionInline(void *this);
-//void nq_onFunctionFinal(void *this);
-//void nq_onFunctionProto(void *this);
-//void nq_onFunctionSuper(void *this);
-//void nq_onFunctionSuffix(void *this, char *name);
-//void nq_onFunctionBody(void *this);
-//void *nq_onFunctionEnd(void *this);
+void nq_onFunctionStart(void *this, char *name, char *doc);
+void nq_onFunctionExtern(void *this, char *externName);
+void nq_onFunctionUnmangled(void *this, char *unmangledName);
+void nq_onFunctionAbstract(void *this);
+void nq_onFunctionThisRef(void *this);
+void nq_onFunctionArgsStart(void *this);
+void nq_onFunctionArgsEnd(void *this);
+void nq_onFunctionReturnType(void *this, void *type);
+void nq_onFunctionConst(void *this);
+void nq_onFunctionStatic(void *this);
+void nq_onFunctionInline(void *this);
+void nq_onFunctionFinal(void *this);
+void nq_onFunctionProto(void *this);
+void nq_onFunctionSuper(void *this);
+void nq_onFunctionSuffix(void *this, char *name);
+void nq_onFunctionBody(void *this);
+void *nq_onFunctionEnd(void *this);
 
-//void nq_onTypeArg(void *this, void *type);
-//void nq_onVarArg(void *this, char *name);
-//void nq_onDotArg(void *this, char *name);
-//void nq_onAssArg(void *this, char *name);
+void nq_onTypeArg(void *this, void *type);
+void nq_onVarArg(void *this, char *name);
+void nq_onDotArg(void *this, char *name);
+void nq_onAssArg(void *this, char *name);
 
-//void nq_onFunctionCallStart(void *this, char *yytext);
-//void nq_onFunctionCallSuffix(void *this, char *yytext);
-//void nq_onFunctionCallArg(void *this, void *expr);
-//void *nq_onFunctionCallEnd(void *this);
-//void nq_onFunctionCallExpr(void *this, void *call, void *expr);
-//void *nq_onFunctionCallChain(void *this, void *expr, void *call);
-//void nq_onFunctionCallCombo(void *this, void *call, void *expr);
+void nq_onFunctionCallStart(void *this, char *yytext);
+void nq_onFunctionCallSuffix(void *this, char *yytext);
+void nq_onFunctionCallArg(void *this, void *expr);
+void *nq_onFunctionCallEnd(void *this);
+void nq_onFunctionCallExpr(void *this, void *call, void *expr);
+void *nq_onFunctionCallChain(void *this, void *expr, void *call);
+void nq_onFunctionCallCombo(void *this, void *call, void *expr);
 
-//void nq_onArrayLiteralStart(void *this);
-//void *nq_onArrayLiteralEnd(void *this);
+void nq_onArrayLiteralStart(void *this);
+void *nq_onArrayLiteralEnd(void *this);
 
-//void nq_onTupleStart(void *this);
-//void *nq_onTupleEnd(void *this);
+void nq_onTupleStart(void *this);
+void *nq_onTupleEnd(void *this);
 
-//void *nq_onStringLiteral(void *this, char *text);
-//void *nq_onCharLiteral(void *this, char *value);
+void *nq_onStringLiteral(void *this, char *text);
+void *nq_onCharLiteral(void *this, char *value);
 
-//void nq_onStatement(void *this, void *statement);
-//void *nq_onReturn(void *this, void *expr);
+void nq_onStatement(void *this, void *statement);
+void *nq_onReturn(void *this, void *expr);
 
-//void *nq_onVarAccess(void *this, void *expr, char *name);
-//void nq_onArrayAccessStart(void *this, void *array);
-//void *nq_onArrayAccessEnd(void *this);
-//void *nq_onCast(void *this, void *expr, void *type);
+void *nq_onVarAccess(void *this, void *expr, char *name);
+void nq_onArrayAccessStart(void *this, void *array);
+void *nq_onArrayAccessEnd(void *this);
+void *nq_onCast(void *this, void *expr, void *type);
 
-//void *nq_onBreak(void *this);
-//void *nq_onContinue(void *this);
+void *nq_onBreak(void *this);
+void *nq_onContinue(void *this);
 
-//void nq_onBlockStart(void *this);
-//void *nq_onBlockEnd(void *this);
+void nq_onBlockStart(void *this);
+void *nq_onBlockEnd(void *this);
 
-//void nq_onIfStart(void *this, void *condition);
-//void *nq_onIfEnd(void *this);
-//void nq_onElseStart(void *this);
-//void *nq_onElseEnd(void *this);
+void nq_onIfStart(void *this, void *condition);
+void *nq_onIfEnd(void *this);
+void nq_onElseStart(void *this);
+void *nq_onElseEnd(void *this);
 
-//void nq_onForeachStart(void *this, void *decl, void *collec);
-//void *nq_onForeachEnd(void *this);
+void nq_onForeachStart(void *this, void *decl, void *collec);
+void *nq_onForeachEnd(void *this);
 
-//void nq_onWhileStart(void *this, void *condition);
-//void *nq_onWhileEnd(void *this);
+void nq_onWhileStart(void *this, void *condition);
+void *nq_onWhileEnd(void *this);
 
-//void *nq_onEquals(void *this, void *left, void *right);
-//void *nq_onNotEquals(void *this, void *left, void *right);
-//void *nq_onLessThan(void *this, void *left, void *right);
-//void *nq_onMoreThan(void *this, void *left, void *right);
-//void *nq_onCmp(void *this, void *left, void *right);
-//void *nq_onLessThanOrEqual(void *this, void *left, void *right);
-//void *nq_onMoreThanOrEqual(void *this, void *left, void *right);
+void *nq_onEquals(void *this, void *left, void *right);
+void *nq_onNotEquals(void *this, void *left, void *right);
+void *nq_onLessThan(void *this, void *left, void *right);
+void *nq_onMoreThan(void *this, void *left, void *right);
+void *nq_onCmp(void *this, void *left, void *right);
+void *nq_onLessThanOrEqual(void *this, void *left, void *right);
+void *nq_onMoreThanOrEqual(void *this, void *left, void *right);
 
-//void *nq_onDecLiteral(void *this, char *value);
-//void *nq_onBinLiteral(void *this, char *value);
-//void *nq_onOctLiteral(void *this, char *value);
-//void *nq_onHexLiteral(void *this, char *value);
-//void *nq_onFloatLiteral(void *this, char *value);
-//void *nq_onBoolLiteral(void *this, bool value);
-//void *nq_onNull(void *this);
+void *nq_onDecLiteral(void *this, char *value);
+void *nq_onBinLiteral(void *this, char *value);
+void *nq_onOctLiteral(void *this, char *value);
+void *nq_onHexLiteral(void *this, char *value);
+void *nq_onFloatLiteral(void *this, char *value);
+void *nq_onBoolLiteral(void *this, bool value);
+void *nq_onNull(void *this);
 
-//void *nq_onDoubleArrow(void *this, void *left, void *right);
-//void *nq_onTernary(void *this, void *condition, void *ifTrue, void *ifFalse);
-//void *nq_onAssignAnd(void *this, void *left, void *right);
-//void *nq_onAssignOr(void *this, void *left, void *right);
-//void *nq_onAssignXor(void *this, void *left, void *right);
-//void *nq_onAssignRightShift(void *this, void *left, void *right);
-//void *nq_onAssignLeftShift(void *this, void *left, void *right);
-//void *nq_onAssignDiv(void *this, void *left, void *right);
-//void *nq_onAssignMul(void *this, void *left, void *right);
-//void *nq_onAssignExp(void *this, void *left, void *right);
-//void *nq_onAssignSub(void *this, void *left, void *right);
-//void *nq_onAssignAdd(void *this, void *left, void *right);
-//void *nq_onAssign(void *this, void *left, void *right);
+void *nq_onDoubleArrow(void *this, void *left, void *right);
+void *nq_onTernary(void *this, void *condition, void *ifTrue, void *ifFalse);
+void *nq_onAssignAnd(void *this, void *left, void *right);
+void *nq_onAssignOr(void *this, void *left, void *right);
+void *nq_onAssignXor(void *this, void *left, void *right);
+void *nq_onAssignRightShift(void *this, void *left, void *right);
+void *nq_onAssignLeftShift(void *this, void *left, void *right);
+void *nq_onAssignDiv(void *this, void *left, void *right);
+void *nq_onAssignMul(void *this, void *left, void *right);
+void *nq_onAssignExp(void *this, void *left, void *right);
+void *nq_onAssignSub(void *this, void *left, void *right);
+void *nq_onAssignAdd(void *this, void *left, void *right);
+void *nq_onAssign(void *this, void *left, void *right);
 
-//void *nq_onAdd(void *this, void *left, void *right);
-//void *nq_onSub(void *this, void *left, void *right);
-//void *nq_onMod(void *this, void *left, void *right);
-//void *nq_onMul(void *this, void *left, void *right);
-//void *nq_onExp(void *this, void *left, void *right);
-//void *nq_onDiv(void *this, void *left, void *right);
-//void *nq_onRangeLiteral(void *this, void *left, void *right);
-//void *nq_onBinaryLeftShift(void *this, void *left, void *right);
-//void *nq_onBinaryRightShift(void *this, void *left, void *right);
-//void *nq_onLogicalOr(void *this, void *left, void *right);
-//void *nq_onLogicalAnd(void *this, void *left, void *right);
-//void *nq_onBinaryOr(void *this, void *left, void *right);
-//void *nq_onBinaryXor(void *this, void *left, void *right);
-//void *nq_onBinaryAnd(void *this, void *left, void *right);
+void *nq_onAdd(void *this, void *left, void *right);
+void *nq_onSub(void *this, void *left, void *right);
+void *nq_onMod(void *this, void *left, void *right);
+void *nq_onMul(void *this, void *left, void *right);
+void *nq_onExp(void *this, void *left, void *right);
+void *nq_onDiv(void *this, void *left, void *right);
+void *nq_onRangeLiteral(void *this, void *left, void *right);
+void *nq_onBinaryLeftShift(void *this, void *left, void *right);
+void *nq_onBinaryRightShift(void *this, void *left, void *right);
+void *nq_onLogicalOr(void *this, void *left, void *right);
+void *nq_onLogicalAnd(void *this, void *left, void *right);
+void *nq_onBinaryOr(void *this, void *left, void *right);
+void *nq_onBinaryXor(void *this, void *left, void *right);
+void *nq_onBinaryAnd(void *this, void *left, void *right);
 
-//void *nq_onLogicalNot(void *this, void *inner);
-//void *nq_onBinaryNot(void *this, void *inner);
-//void *nq_onUnaryMinus(void *this, void *inner);
+void *nq_onLogicalNot(void *this, void *inner);
+void *nq_onBinaryNot(void *this, void *inner);
+void *nq_onUnaryMinus(void *this, void *inner);
 
-//void *nq_onParenthesis(void *this, void *inner);
+void *nq_onParenthesis(void *this, void *inner);
 
-//void nq_onGenericArgument(void *this, char *name);
+void nq_onGenericArgument(void *this, char *name);
 
-//void *nq_onAddressOf  (void *this, void *inner);
-//void *nq_onDereference(void *this, void *inner);
+void *nq_onAddressOf  (void *this, void *inner);
+void *nq_onDereference(void *this, void *inner);
 
-//void nq_onMatchStart(void *this);
-//void nq_onMatchExpr(void *this, void *value);
-//void *nq_onMatchEnd(void *this);
-//void nq_onCaseStart(void *this);
-//void nq_onCaseExpr(void *this, void *value);
-//void nq_onCaseEnd(void *this);
+void nq_onMatchStart(void *this);
+void nq_onMatchExpr(void *this, void *value);
+void *nq_onMatchEnd(void *this);
+void nq_onCaseStart(void *this);
+void nq_onCaseExpr(void *this, void *value);
+void nq_onCaseEnd(void *this);
 
-//void nq_onTryStart(void *this);
-//void *nq_onTryEnd(void *this);
-//void nq_onCatchStart(void *this);
-//void nq_onCatchExpr(void *this, void *value);
-//void nq_onCatchEnd(void *this);
+void nq_onTryStart(void *this);
+void *nq_onTryEnd(void *this);
+void nq_onCatchStart(void *this);
+void nq_onCatchExpr(void *this, void *value);
+void nq_onCatchEnd(void *this);
 
-//void nq_error(void *this, int errorID, char *defaultMessage, int index);
+void nq_error(void *this, int errorID, char *defaultMessage, int index);
 
 /////////////////////                callbacks def end               ////////////////////////
 

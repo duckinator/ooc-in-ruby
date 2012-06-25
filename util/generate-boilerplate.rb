@@ -47,7 +47,7 @@ EOF
 end
 
 def generate_code(line)
-  if line =~ /^\/\/([^ ]*(?: )\*?)nq_(.*)\((.*)\);/
+  if line =~ /^([^ ]*(?: )\*?)nq_(.*)\((.*)\);/
     type, name, args = $1, $2, $3
 
     args.gsub!(' *', '* ')

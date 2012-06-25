@@ -18,7 +18,4 @@ fi
 cd $DIR
 cp $ROCK_DIST/source/rock/frontend/NagaQueen.c ./nagaqueen/nagaqueen.h
 
-sed -i -r 's|(void\|char) .*nq_|//\0|g' ./nagaqueen/nagaqueen.h
-
-
 # Why is it .h? Because I don't want to fight extconf.rb

@@ -3,13 +3,11 @@
 VALUE cNagaqueen,
       ast;
 
-#include <stdbool.h>
+#include "nagaqueen.h" // Hacky
 
 // Hackity hack hack.
 // Ideally this would be a .c file, but I don't feel like fighting extconf.rb
 #include "boilerplate.h"
-
-#include "nagaqueen.h" // Hacky
 
 //extern int nq_parse(VALUE self, char *path);
 int _nq_parse(VALUE self, char *path) {

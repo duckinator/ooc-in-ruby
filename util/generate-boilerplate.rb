@@ -37,10 +37,16 @@ def func(ftype, fname, args)
     call_args.shift
   end
 
+  str_cstr_start, str_cstr_end = nil
+  if ftype == 'char *'
+    str_cstr_start = 'rb_string_value_cstr((VALUE*)('
+    str_cstr_end   = '))'
+  end
+
   <<EOF
 #{ftype} nq_#{fname} (#{def_args.join(', ')})
 {
-  rb_funcall(#{receiver}, rb_intern("#{fname}"), #{call_args.length}#{', ' if call_args.length > 0} #{call_args.join(', ')});
+  #{str_cstr_start}rb_funcall(#{receiver}, rb_intern("#{fname}"), #{call_args.length}#{', ' if call_args.length > 0} #{call_args.join(', ')})#{str_cstr_end};
 }
 
 EOF

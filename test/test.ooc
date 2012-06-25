@@ -1,1 +1,1 @@
-"tada" println()
+"tada"

@@ -27,9 +27,36 @@ module Nagaqueen
       @@filename
     end
 
+    def tokenpos
+      @@tokenpos
+    end
+
     def parse(filename)
       @@ast = nil
       @@filename = filename
+      @@tokenPos = -1
+
+      # HashMap<String, Module> new()
+      @@cache = {}
+
+      # langImports : List<String>
+      @@langImports = []
+
+      # params: BuildParams
+      @@params = nil
+
+      # modulePath: String
+      @@modulePath = nil
+
+      # module: Module
+      @@module = nil
+
+      # stack: Stack<Object>
+      @@stack = []
+
+      # versionStack: Stack<VersionSpec>
+      @@versionStack = []
+
       _parse
     end
   end

@@ -1,960 +1,960 @@
-void nq_setTokenPositionPointer (void* self, int* tokenPosPointer)
+void nq_setTokenPositionPointer (void* this, int* tokenPosPointer)
 {
-  rb_funcall(cNagaqueen, rb_intern("setTokenPositionPointer"), 2, (VALUE)(self), INT2NUM(*tokenPosPointer));
+  rb_funcall((VALUE)(this), rb_intern("setTokenPositionPointer"), 1,  INT2NUM(*tokenPosPointer));
 }
 
 char * nq_StringClone (char* string)
 {
-  rb_funcall(cNagaqueen, rb_intern("StringClone"), 1, rb_str_new2(string));
+  rb_funcall(cNagaqueen, rb_intern("StringClone"), 1,  rb_str_new2(string));
 }
 
 char * nq_trailingQuest (char* string)
 {
-  rb_funcall(cNagaqueen, rb_intern("trailingQuest"), 1, rb_str_new2(string));
+  rb_funcall(cNagaqueen, rb_intern("trailingQuest"), 1,  rb_str_new2(string));
 }
 
 char * nq_trailingBang (char* string)
 {
-  rb_funcall(cNagaqueen, rb_intern("trailingBang"), 1, rb_str_new2(string));
+  rb_funcall(cNagaqueen, rb_intern("trailingBang"), 1,  rb_str_new2(string));
 }
 
-void nq_onUse (void* self, char* name)
+void nq_onUse (void* this, char* name)
 {
-  rb_funcall(cNagaqueen, rb_intern("onUse"), 2, (VALUE)(self), rb_str_new2(name));
+  rb_funcall((VALUE)(this), rb_intern("onUse"), 1,  rb_str_new2(name));
 }
 
-void nq_onInclude (void* self, char* path)
+void nq_onInclude (void* this, char* path)
 {
-  rb_funcall(cNagaqueen, rb_intern("onInclude"), 2, (VALUE)(self), rb_str_new2(path));
+  rb_funcall((VALUE)(this), rb_intern("onInclude"), 1,  rb_str_new2(path));
 }
 
-void nq_onIncludeDefine (void* self, char* name, char* value)
+void nq_onIncludeDefine (void* this, char* name, char* value)
 {
-  rb_funcall(cNagaqueen, rb_intern("onIncludeDefine"), 3, (VALUE)(self), rb_str_new2(name), rb_str_new2(value));
+  rb_funcall((VALUE)(this), rb_intern("onIncludeDefine"), 2,  rb_str_new2(name), rb_str_new2(value));
 }
 
-void nq_onImport (void* self, char* path, char* name)
+void nq_onImport (void* this, char* path, char* name)
 {
-  rb_funcall(cNagaqueen, rb_intern("onImport"), 3, (VALUE)(self), rb_str_new2(path), rb_str_new2(name));
+  rb_funcall((VALUE)(this), rb_intern("onImport"), 2,  rb_str_new2(path), rb_str_new2(name));
 }
 
-void nq_onImportNamespace (void* self, char* namespace, int quantity)
+void nq_onImportNamespace (void* this, char* namespace, int quantity)
 {
-  rb_funcall(cNagaqueen, rb_intern("onImportNamespace"), 3, (VALUE)(self), rb_str_new2(namespace), INT2NUM(quantity));
+  rb_funcall((VALUE)(this), rb_intern("onImportNamespace"), 2,  rb_str_new2(namespace), INT2NUM(quantity));
 }
 
-void * nq_onVersionName (void* self, char* name)
+void * nq_onVersionName (void* this, char* name)
 {
-  rb_funcall(cNagaqueen, rb_intern("onVersionName"), 2, (VALUE)(self), rb_str_new2(name));
+  rb_funcall((VALUE)(this), rb_intern("onVersionName"), 1,  rb_str_new2(name));
 }
 
-void * nq_onVersionNegation (void* self, void* spec)
+void * nq_onVersionNegation (void* this, void* spec)
 {
-  rb_funcall(cNagaqueen, rb_intern("onVersionNegation"), 2, (VALUE)(self), spec);
+  rb_funcall((VALUE)(this), rb_intern("onVersionNegation"), 1,  spec);
 }
 
-void * nq_onVersionAnd (void* self, void* specLeft, void* specRight)
+void * nq_onVersionAnd (void* this, void* specLeft, void* specRight)
 {
-  rb_funcall(cNagaqueen, rb_intern("onVersionAnd"), 3, (VALUE)(self), specLeft, specRight);
+  rb_funcall((VALUE)(this), rb_intern("onVersionAnd"), 2,  specLeft, specRight);
 }
 
-void * nq_onVersionOr (void* self, void* specLeft, void* specRight)
+void * nq_onVersionOr (void* this, void* specLeft, void* specRight)
 {
-  rb_funcall(cNagaqueen, rb_intern("onVersionOr"), 3, (VALUE)(self), specLeft, specRight);
+  rb_funcall((VALUE)(this), rb_intern("onVersionOr"), 2,  specLeft, specRight);
 }
 
-void nq_onVersionStart (void* self, void* spec)
+void nq_onVersionStart (void* this, void* spec)
 {
-  rb_funcall(cNagaqueen, rb_intern("onVersionStart"), 2, (VALUE)(self), spec);
+  rb_funcall((VALUE)(this), rb_intern("onVersionStart"), 1,  spec);
 }
 
-void * nq_onVersionElseIfStart (void* self, void* notSpec, void* elseSpec)
+void * nq_onVersionElseIfStart (void* this, void* notSpec, void* elseSpec)
 {
-  rb_funcall(cNagaqueen, rb_intern("onVersionElseIfStart"), 3, (VALUE)(self), notSpec, elseSpec);
+  rb_funcall((VALUE)(this), rb_intern("onVersionElseIfStart"), 2,  notSpec, elseSpec);
 }
 
-void nq_onVersionElseStart (void* self, void* notSpec)
+void nq_onVersionElseStart (void* this, void* notSpec)
 {
-  rb_funcall(cNagaqueen, rb_intern("onVersionElseStart"), 2, (VALUE)(self), notSpec);
+  rb_funcall((VALUE)(this), rb_intern("onVersionElseStart"), 1,  notSpec);
 }
 
-void * nq_onVersionEnd (void* self)
+void * nq_onVersionEnd (void* this)
 {
-  rb_funcall(cNagaqueen, rb_intern("onVersionEnd"), 1, (VALUE)(self));
+  rb_funcall((VALUE)(this), rb_intern("onVersionEnd"), 0 );
 }
 
-void nq_onExtendStart (void* self, void* type, char* doc)
+void nq_onExtendStart (void* this, void* type, char* doc)
 {
-  rb_funcall(cNagaqueen, rb_intern("onExtendStart"), 3, (VALUE)(self), type, rb_str_new2(doc));
+  rb_funcall((VALUE)(this), rb_intern("onExtendStart"), 2,  type, rb_str_new2(doc));
 }
 
-void nq_onExtendEnd (void* self)
+void nq_onExtendEnd (void* this)
 {
-  rb_funcall(cNagaqueen, rb_intern("onExtendEnd"), 1, (VALUE)(self));
+  rb_funcall((VALUE)(this), rb_intern("onExtendEnd"), 0 );
 }
 
-void nq_onCoverStart (void* self, char* name, char* doc)
+void nq_onCoverStart (void* this, char* name, char* doc)
 {
-  rb_funcall(cNagaqueen, rb_intern("onCoverStart"), 3, (VALUE)(self), rb_str_new2(name), rb_str_new2(doc));
+  rb_funcall((VALUE)(this), rb_intern("onCoverStart"), 2,  rb_str_new2(name), rb_str_new2(doc));
 }
 
-void nq_onCoverExtern (void* self, char* externName)
+void nq_onCoverExtern (void* this, char* externName)
 {
-  rb_funcall(cNagaqueen, rb_intern("onCoverExtern"), 2, (VALUE)(self), rb_str_new2(externName));
+  rb_funcall((VALUE)(this), rb_intern("onCoverExtern"), 1,  rb_str_new2(externName));
 }
 
-void nq_onCoverFromType (void* self, void* type)
+void nq_onCoverFromType (void* this, void* type)
 {
-  rb_funcall(cNagaqueen, rb_intern("onCoverFromType"), 2, (VALUE)(self), type);
+  rb_funcall((VALUE)(this), rb_intern("onCoverFromType"), 1,  type);
 }
 
-void nq_onCoverExtends (void* self, void* type)
+void nq_onCoverExtends (void* this, void* type)
 {
-  rb_funcall(cNagaqueen, rb_intern("onCoverExtends"), 2, (VALUE)(self), type);
+  rb_funcall((VALUE)(this), rb_intern("onCoverExtends"), 1,  type);
 }
 
-void nq_onCoverImplements (void* self, void* type)
+void nq_onCoverImplements (void* this, void* type)
 {
-  rb_funcall(cNagaqueen, rb_intern("onCoverImplements"), 2, (VALUE)(self), type);
+  rb_funcall((VALUE)(this), rb_intern("onCoverImplements"), 1,  type);
 }
 
-void nq_onCoverEnd (void* self)
+void nq_onCoverEnd (void* this)
 {
-  rb_funcall(cNagaqueen, rb_intern("onCoverEnd"), 1, (VALUE)(self));
+  rb_funcall((VALUE)(this), rb_intern("onCoverEnd"), 0 );
 }
 
-void nq_onEnumStart (void* self, char* name, char* doc)
+void nq_onEnumStart (void* this, char* name, char* doc)
 {
-  rb_funcall(cNagaqueen, rb_intern("onEnumStart"), 3, (VALUE)(self), rb_str_new2(name), rb_str_new2(doc));
+  rb_funcall((VALUE)(this), rb_intern("onEnumStart"), 2,  rb_str_new2(name), rb_str_new2(doc));
 }
 
-void nq_onEnumExtern (void* self, char* externName)
+void nq_onEnumExtern (void* this, char* externName)
 {
-  rb_funcall(cNagaqueen, rb_intern("onEnumExtern"), 2, (VALUE)(self), rb_str_new2(externName));
+  rb_funcall((VALUE)(this), rb_intern("onEnumExtern"), 1,  rb_str_new2(externName));
 }
 
-void nq_onEnumFromType (void* self, void* fromType)
+void nq_onEnumFromType (void* this, void* fromType)
 {
-  rb_funcall(cNagaqueen, rb_intern("onEnumFromType"), 2, (VALUE)(self), fromType);
+  rb_funcall((VALUE)(this), rb_intern("onEnumFromType"), 1,  fromType);
 }
 
-void nq_onEnumIncrementExpr (void* self, char oper, void* step)
+void nq_onEnumIncrementExpr (void* this, char oper, void* step)
 {
-  rb_funcall(cNagaqueen, rb_intern("onEnumIncrementExpr"), 3, (VALUE)(self), oper, step);
+  rb_funcall((VALUE)(this), rb_intern("onEnumIncrementExpr"), 2,  oper, step);
 }
 
-void nq_onEnumElementStart (void* self, char* name, char* doc)
+void nq_onEnumElementStart (void* this, char* name, char* doc)
 {
-  rb_funcall(cNagaqueen, rb_intern("onEnumElementStart"), 3, (VALUE)(self), rb_str_new2(name), rb_str_new2(doc));
+  rb_funcall((VALUE)(this), rb_intern("onEnumElementStart"), 2,  rb_str_new2(name), rb_str_new2(doc));
 }
 
-void nq_onEnumElementValue (void* self, void* value)
+void nq_onEnumElementValue (void* this, void* value)
 {
-  rb_funcall(cNagaqueen, rb_intern("onEnumElementValue"), 2, (VALUE)(self), value);
+  rb_funcall((VALUE)(this), rb_intern("onEnumElementValue"), 1,  value);
 }
 
-void nq_onEnumElementExtern (void* self, char* externName)
+void nq_onEnumElementExtern (void* this, char* externName)
 {
-  rb_funcall(cNagaqueen, rb_intern("onEnumElementExtern"), 2, (VALUE)(self), rb_str_new2(externName));
+  rb_funcall((VALUE)(this), rb_intern("onEnumElementExtern"), 1,  rb_str_new2(externName));
 }
 
-void nq_onEnumElementEnd (void* self)
+void nq_onEnumElementEnd (void* this)
 {
-  rb_funcall(cNagaqueen, rb_intern("onEnumElementEnd"), 1, (VALUE)(self));
+  rb_funcall((VALUE)(this), rb_intern("onEnumElementEnd"), 0 );
 }
 
-void nq_onEnumEnd (void* self)
+void nq_onEnumEnd (void* this)
 {
-  rb_funcall(cNagaqueen, rb_intern("onEnumEnd"), 1, (VALUE)(self));
+  rb_funcall((VALUE)(this), rb_intern("onEnumEnd"), 0 );
 }
 
-void nq_onClassStart (void* self, char* name, char* doc)
+void nq_onClassStart (void* this, char* name, char* doc)
 {
-  rb_funcall(cNagaqueen, rb_intern("onClassStart"), 3, (VALUE)(self), rb_str_new2(name), rb_str_new2(doc));
+  rb_funcall((VALUE)(this), rb_intern("onClassStart"), 2,  rb_str_new2(name), rb_str_new2(doc));
 }
 
-void nq_onClassAbstract (void* self)
+void nq_onClassAbstract (void* this)
 {
-  rb_funcall(cNagaqueen, rb_intern("onClassAbstract"), 1, (VALUE)(self));
+  rb_funcall((VALUE)(this), rb_intern("onClassAbstract"), 0 );
 }
 
-void nq_onClassFinal (void* self)
+void nq_onClassFinal (void* this)
 {
-  rb_funcall(cNagaqueen, rb_intern("onClassFinal"), 1, (VALUE)(self));
+  rb_funcall((VALUE)(this), rb_intern("onClassFinal"), 0 );
 }
 
-void nq_onClassExtends (void* self, void* type)
+void nq_onClassExtends (void* this, void* type)
 {
-  rb_funcall(cNagaqueen, rb_intern("onClassExtends"), 2, (VALUE)(self), type);
+  rb_funcall((VALUE)(this), rb_intern("onClassExtends"), 1,  type);
 }
 
-void nq_onClassImplements (void* self, void* type)
+void nq_onClassImplements (void* this, void* type)
 {
-  rb_funcall(cNagaqueen, rb_intern("onClassImplements"), 2, (VALUE)(self), type);
+  rb_funcall((VALUE)(this), rb_intern("onClassImplements"), 1,  type);
 }
 
-void nq_onClassBody (void* self)
+void nq_onClassBody (void* this)
 {
-  rb_funcall(cNagaqueen, rb_intern("onClassBody"), 1, (VALUE)(self));
+  rb_funcall((VALUE)(this), rb_intern("onClassBody"), 0 );
 }
 
-void nq_onClassEnd (void* self)
+void nq_onClassEnd (void* this)
 {
-  rb_funcall(cNagaqueen, rb_intern("onClassEnd"), 1, (VALUE)(self));
+  rb_funcall((VALUE)(this), rb_intern("onClassEnd"), 0 );
 }
 
-void nq_onInterfaceStart (void* self, char* name, char* doc)
+void nq_onInterfaceStart (void* this, char* name, char* doc)
 {
-  rb_funcall(cNagaqueen, rb_intern("onInterfaceStart"), 3, (VALUE)(self), rb_str_new2(name), rb_str_new2(doc));
+  rb_funcall((VALUE)(this), rb_intern("onInterfaceStart"), 2,  rb_str_new2(name), rb_str_new2(doc));
 }
 
-void nq_onInterfaceExtends (void* self, void* type)
+void nq_onInterfaceExtends (void* this, void* type)
 {
-  rb_funcall(cNagaqueen, rb_intern("onInterfaceExtends"), 2, (VALUE)(self), type);
+  rb_funcall((VALUE)(this), rb_intern("onInterfaceExtends"), 1,  type);
 }
 
-void nq_onInterfaceEnd (void* self)
+void nq_onInterfaceEnd (void* this)
 {
-  rb_funcall(cNagaqueen, rb_intern("onInterfaceEnd"), 1, (VALUE)(self));
+  rb_funcall((VALUE)(this), rb_intern("onInterfaceEnd"), 0 );
 }
 
-void nq_onPropertyDeclStart (void* self, char* name, char* doc)
+void nq_onPropertyDeclStart (void* this, char* name, char* doc)
 {
-  rb_funcall(cNagaqueen, rb_intern("onPropertyDeclStart"), 3, (VALUE)(self), rb_str_new2(name), rb_str_new2(doc));
+  rb_funcall((VALUE)(this), rb_intern("onPropertyDeclStart"), 2,  rb_str_new2(name), rb_str_new2(doc));
 }
 
-void nq_onPropertyDeclStatic (void* self)
+void nq_onPropertyDeclStatic (void* this)
 {
-  rb_funcall(cNagaqueen, rb_intern("onPropertyDeclStatic"), 1, (VALUE)(self));
+  rb_funcall((VALUE)(this), rb_intern("onPropertyDeclStatic"), 0 );
 }
 
-void nq_onPropertyDeclType (void* self, void* type)
+void nq_onPropertyDeclType (void* this, void* type)
 {
-  rb_funcall(cNagaqueen, rb_intern("onPropertyDeclType"), 2, (VALUE)(self), type);
+  rb_funcall((VALUE)(this), rb_intern("onPropertyDeclType"), 1,  type);
 }
 
-void * nq_onPropertyDeclEnd (void* self)
+void * nq_onPropertyDeclEnd (void* this)
 {
-  rb_funcall(cNagaqueen, rb_intern("onPropertyDeclEnd"), 1, (VALUE)(self));
+  rb_funcall((VALUE)(this), rb_intern("onPropertyDeclEnd"), 0 );
 }
 
-void nq_onPropertyDeclGetterStart (void* self, char* doc)
+void nq_onPropertyDeclGetterStart (void* this, char* doc)
 {
-  rb_funcall(cNagaqueen, rb_intern("onPropertyDeclGetterStart"), 2, (VALUE)(self), rb_str_new2(doc));
+  rb_funcall((VALUE)(this), rb_intern("onPropertyDeclGetterStart"), 1,  rb_str_new2(doc));
 }
 
-void * nq_onPropertyDeclGetterEnd (void* self)
+void * nq_onPropertyDeclGetterEnd (void* this)
 {
-  rb_funcall(cNagaqueen, rb_intern("onPropertyDeclGetterEnd"), 1, (VALUE)(self));
+  rb_funcall((VALUE)(this), rb_intern("onPropertyDeclGetterEnd"), 0 );
 }
 
-void nq_onPropertyDeclSetterStart (void* self, char* doc)
+void nq_onPropertyDeclSetterStart (void* this, char* doc)
 {
-  rb_funcall(cNagaqueen, rb_intern("onPropertyDeclSetterStart"), 2, (VALUE)(self), rb_str_new2(doc));
+  rb_funcall((VALUE)(this), rb_intern("onPropertyDeclSetterStart"), 1,  rb_str_new2(doc));
 }
 
-void nq_onPropertyDeclSetterArgument (void* self, char* name, _Bool conventional)
+void nq_onPropertyDeclSetterArgument (void* this, char* name, _Bool conventional)
 {
-  rb_funcall(cNagaqueen, rb_intern("onPropertyDeclSetterArgument"), 3, (VALUE)(self), rb_str_new2(name), conventional);
+  rb_funcall((VALUE)(this), rb_intern("onPropertyDeclSetterArgument"), 2,  rb_str_new2(name), conventional);
 }
 
-void * nq_onPropertyDeclSetterEnd (void* self)
+void * nq_onPropertyDeclSetterEnd (void* this)
 {
-  rb_funcall(cNagaqueen, rb_intern("onPropertyDeclSetterEnd"), 1, (VALUE)(self));
+  rb_funcall((VALUE)(this), rb_intern("onPropertyDeclSetterEnd"), 0 );
 }
 
-void nq_onVarDeclStart (void* self)
+void nq_onVarDeclStart (void* this)
 {
-  rb_funcall(cNagaqueen, rb_intern("onVarDeclStart"), 1, (VALUE)(self));
+  rb_funcall((VALUE)(this), rb_intern("onVarDeclStart"), 0 );
 }
 
-void nq_onVarDeclName (void* self, char* name, char* doc)
+void nq_onVarDeclName (void* this, char* name, char* doc)
 {
-  rb_funcall(cNagaqueen, rb_intern("onVarDeclName"), 3, (VALUE)(self), rb_str_new2(name), rb_str_new2(doc));
+  rb_funcall((VALUE)(this), rb_intern("onVarDeclName"), 2,  rb_str_new2(name), rb_str_new2(doc));
 }
 
-void nq_onVarDeclTuple (void* self, void* tuple)
+void nq_onVarDeclTuple (void* this, void* tuple)
 {
-  rb_funcall(cNagaqueen, rb_intern("onVarDeclTuple"), 2, (VALUE)(self), tuple);
+  rb_funcall((VALUE)(this), rb_intern("onVarDeclTuple"), 1,  tuple);
 }
 
-void nq_onVarDeclExtern (void* self, char* externName)
+void nq_onVarDeclExtern (void* this, char* externName)
 {
-  rb_funcall(cNagaqueen, rb_intern("onVarDeclExtern"), 2, (VALUE)(self), rb_str_new2(externName));
+  rb_funcall((VALUE)(this), rb_intern("onVarDeclExtern"), 1,  rb_str_new2(externName));
 }
 
-void nq_onVarDeclUnmangled (void* self, char* unmangledName)
+void nq_onVarDeclUnmangled (void* this, char* unmangledName)
 {
-  rb_funcall(cNagaqueen, rb_intern("onVarDeclUnmangled"), 2, (VALUE)(self), rb_str_new2(unmangledName));
+  rb_funcall((VALUE)(this), rb_intern("onVarDeclUnmangled"), 1,  rb_str_new2(unmangledName));
 }
 
-void nq_onVarDeclExpr (void* self, void* expr)
+void nq_onVarDeclExpr (void* this, void* expr)
 {
-  rb_funcall(cNagaqueen, rb_intern("onVarDeclExpr"), 2, (VALUE)(self), expr);
+  rb_funcall((VALUE)(this), rb_intern("onVarDeclExpr"), 1,  expr);
 }
 
-void nq_onVarDeclType (void* self, void* type)
+void nq_onVarDeclType (void* this, void* type)
 {
-  rb_funcall(cNagaqueen, rb_intern("onVarDeclType"), 2, (VALUE)(self), type);
+  rb_funcall((VALUE)(this), rb_intern("onVarDeclType"), 1,  type);
 }
 
-void nq_onVarDeclStatic (void* self)
+void nq_onVarDeclStatic (void* this)
 {
-  rb_funcall(cNagaqueen, rb_intern("onVarDeclStatic"), 1, (VALUE)(self));
+  rb_funcall((VALUE)(this), rb_intern("onVarDeclStatic"), 0 );
 }
 
-void nq_onVarDeclConst (void* self)
+void nq_onVarDeclConst (void* this)
 {
-  rb_funcall(cNagaqueen, rb_intern("onVarDeclConst"), 1, (VALUE)(self));
+  rb_funcall((VALUE)(this), rb_intern("onVarDeclConst"), 0 );
 }
 
-void nq_onVarDeclProto (void* self)
+void nq_onVarDeclProto (void* this)
 {
-  rb_funcall(cNagaqueen, rb_intern("onVarDeclProto"), 1, (VALUE)(self));
+  rb_funcall((VALUE)(this), rb_intern("onVarDeclProto"), 0 );
 }
 
-void * nq_onVarDeclEnd (void* self)
+void * nq_onVarDeclEnd (void* this)
 {
-  rb_funcall(cNagaqueen, rb_intern("onVarDeclEnd"), 1, (VALUE)(self));
+  rb_funcall((VALUE)(this), rb_intern("onVarDeclEnd"), 0 );
 }
 
-void * nq_onTypeAccess (void* self, void* type)
+void * nq_onTypeAccess (void* this, void* type)
 {
-  rb_funcall(cNagaqueen, rb_intern("onTypeAccess"), 2, (VALUE)(self), type);
+  rb_funcall((VALUE)(this), rb_intern("onTypeAccess"), 1,  type);
 }
 
-void * nq_onTypeNew (void* self, char* name)
+void * nq_onTypeNew (void* this, char* name)
 {
-  rb_funcall(cNagaqueen, rb_intern("onTypeNew"), 2, (VALUE)(self), rb_str_new2(name));
+  rb_funcall((VALUE)(this), rb_intern("onTypeNew"), 1,  rb_str_new2(name));
 }
 
-void * nq_onTypePointer (void* self, void* type)
+void * nq_onTypePointer (void* this, void* type)
 {
-  rb_funcall(cNagaqueen, rb_intern("onTypePointer"), 2, (VALUE)(self), type);
+  rb_funcall((VALUE)(this), rb_intern("onTypePointer"), 1,  type);
 }
 
-void * nq_onTypeReference (void* self, void* type)
+void * nq_onTypeReference (void* this, void* type)
 {
-  rb_funcall(cNagaqueen, rb_intern("onTypeReference"), 2, (VALUE)(self), type);
+  rb_funcall((VALUE)(this), rb_intern("onTypeReference"), 1,  type);
 }
 
-void * nq_onTypeBrackets (void* self, void* type, void* inner)
+void * nq_onTypeBrackets (void* this, void* type, void* inner)
 {
-  rb_funcall(cNagaqueen, rb_intern("onTypeBrackets"), 3, (VALUE)(self), type, inner);
+  rb_funcall((VALUE)(this), rb_intern("onTypeBrackets"), 2,  type, inner);
 }
 
-void nq_onTypeGenericArgument (void* self, void* type, void* genType)
+void nq_onTypeGenericArgument (void* this, void* type, void* genType)
 {
-  rb_funcall(cNagaqueen, rb_intern("onTypeGenericArgument"), 3, (VALUE)(self), type, genType);
+  rb_funcall((VALUE)(this), rb_intern("onTypeGenericArgument"), 2,  type, genType);
 }
 
-void nq_onFuncTypeGenericArgument (void* self, void* type, char* name)
+void nq_onFuncTypeGenericArgument (void* this, void* type, char* name)
 {
-  rb_funcall(cNagaqueen, rb_intern("onFuncTypeGenericArgument"), 3, (VALUE)(self), type, rb_str_new2(name));
+  rb_funcall((VALUE)(this), rb_intern("onFuncTypeGenericArgument"), 2,  type, rb_str_new2(name));
 }
 
-void * nq_onTypeList (void* self)
+void * nq_onTypeList (void* this)
 {
-  rb_funcall(cNagaqueen, rb_intern("onTypeList"), 1, (VALUE)(self));
+  rb_funcall((VALUE)(this), rb_intern("onTypeList"), 0 );
 }
 
-void * nq_onTypeListElement (void* self, void* list, void* elem)
+void * nq_onTypeListElement (void* this, void* list, void* elem)
 {
-  rb_funcall(cNagaqueen, rb_intern("onTypeListElement"), 3, (VALUE)(self), list, elem);
+  rb_funcall((VALUE)(this), rb_intern("onTypeListElement"), 2,  list, elem);
 }
 
-void nq_onTypeNamespace (void* self, void* type, void* ident)
+void nq_onTypeNamespace (void* this, void* type, void* ident)
 {
-  rb_funcall(cNagaqueen, rb_intern("onTypeNamespace"), 3, (VALUE)(self), type, ident);
+  rb_funcall((VALUE)(this), rb_intern("onTypeNamespace"), 2,  type, ident);
 }
 
-void * nq_onFuncTypeNew (void* self)
+void * nq_onFuncTypeNew (void* this)
 {
-  rb_funcall(cNagaqueen, rb_intern("onFuncTypeNew"), 1, (VALUE)(self));
+  rb_funcall((VALUE)(this), rb_intern("onFuncTypeNew"), 0 );
 }
 
-void nq_onFuncTypeArgument (void* self, void* funcType, void* argType)
+void nq_onFuncTypeArgument (void* this, void* funcType, void* argType)
 {
-  rb_funcall(cNagaqueen, rb_intern("onFuncTypeArgument"), 3, (VALUE)(self), funcType, argType);
+  rb_funcall((VALUE)(this), rb_intern("onFuncTypeArgument"), 2,  funcType, argType);
 }
 
-void nq_onFuncTypeVarArg (void* self, void* funcType)
+void nq_onFuncTypeVarArg (void* this, void* funcType)
 {
-  rb_funcall(cNagaqueen, rb_intern("onFuncTypeVarArg"), 2, (VALUE)(self), funcType);
+  rb_funcall((VALUE)(this), rb_intern("onFuncTypeVarArg"), 1,  funcType);
 }
 
-void nq_onFuncTypeReturnType (void* self, void* funcType, void* returnType)
+void nq_onFuncTypeReturnType (void* this, void* funcType, void* returnType)
 {
-  rb_funcall(cNagaqueen, rb_intern("onFuncTypeReturnType"), 3, (VALUE)(self), funcType, returnType);
+  rb_funcall((VALUE)(this), rb_intern("onFuncTypeReturnType"), 2,  funcType, returnType);
 }
 
-void nq_onOperatorStart (void* self, char* symbol)
+void nq_onOperatorStart (void* this, char* symbol)
 {
-  rb_funcall(cNagaqueen, rb_intern("onOperatorStart"), 2, (VALUE)(self), rb_str_new2(symbol));
+  rb_funcall((VALUE)(this), rb_intern("onOperatorStart"), 1,  rb_str_new2(symbol));
 }
 
-void nq_onOperatorEnd (void* self)
+void nq_onOperatorEnd (void* this)
 {
-  rb_funcall(cNagaqueen, rb_intern("onOperatorEnd"), 1, (VALUE)(self));
+  rb_funcall((VALUE)(this), rb_intern("onOperatorEnd"), 0 );
 }
 
-void nq_onFunctionStart (void* self, char* name, char* doc)
+void nq_onFunctionStart (void* this, char* name, char* doc)
 {
-  rb_funcall(cNagaqueen, rb_intern("onFunctionStart"), 3, (VALUE)(self), rb_str_new2(name), rb_str_new2(doc));
+  rb_funcall((VALUE)(this), rb_intern("onFunctionStart"), 2,  rb_str_new2(name), rb_str_new2(doc));
 }
 
-void nq_onFunctionExtern (void* self, char* externName)
+void nq_onFunctionExtern (void* this, char* externName)
 {
-  rb_funcall(cNagaqueen, rb_intern("onFunctionExtern"), 2, (VALUE)(self), rb_str_new2(externName));
+  rb_funcall((VALUE)(this), rb_intern("onFunctionExtern"), 1,  rb_str_new2(externName));
 }
 
-void nq_onFunctionUnmangled (void* self, char* unmangledName)
+void nq_onFunctionUnmangled (void* this, char* unmangledName)
 {
-  rb_funcall(cNagaqueen, rb_intern("onFunctionUnmangled"), 2, (VALUE)(self), rb_str_new2(unmangledName));
+  rb_funcall((VALUE)(this), rb_intern("onFunctionUnmangled"), 1,  rb_str_new2(unmangledName));
 }
 
-void nq_onFunctionAbstract (void* self)
+void nq_onFunctionAbstract (void* this)
 {
-  rb_funcall(cNagaqueen, rb_intern("onFunctionAbstract"), 1, (VALUE)(self));
+  rb_funcall((VALUE)(this), rb_intern("onFunctionAbstract"), 0 );
 }
 
-void nq_onFunctionThisRef (void* self)
+void nq_onFunctionThisRef (void* this)
 {
-  rb_funcall(cNagaqueen, rb_intern("onFunctionThisRef"), 1, (VALUE)(self));
+  rb_funcall((VALUE)(this), rb_intern("onFunctionThisRef"), 0 );
 }
 
-void nq_onFunctionArgsStart (void* self)
+void nq_onFunctionArgsStart (void* this)
 {
-  rb_funcall(cNagaqueen, rb_intern("onFunctionArgsStart"), 1, (VALUE)(self));
+  rb_funcall((VALUE)(this), rb_intern("onFunctionArgsStart"), 0 );
 }
 
-void nq_onFunctionArgsEnd (void* self)
+void nq_onFunctionArgsEnd (void* this)
 {
-  rb_funcall(cNagaqueen, rb_intern("onFunctionArgsEnd"), 1, (VALUE)(self));
+  rb_funcall((VALUE)(this), rb_intern("onFunctionArgsEnd"), 0 );
 }
 
-void nq_onFunctionReturnType (void* self, void* type)
+void nq_onFunctionReturnType (void* this, void* type)
 {
-  rb_funcall(cNagaqueen, rb_intern("onFunctionReturnType"), 2, (VALUE)(self), type);
+  rb_funcall((VALUE)(this), rb_intern("onFunctionReturnType"), 1,  type);
 }
 
-void nq_onFunctionConst (void* self)
+void nq_onFunctionConst (void* this)
 {
-  rb_funcall(cNagaqueen, rb_intern("onFunctionConst"), 1, (VALUE)(self));
+  rb_funcall((VALUE)(this), rb_intern("onFunctionConst"), 0 );
 }
 
-void nq_onFunctionStatic (void* self)
+void nq_onFunctionStatic (void* this)
 {
-  rb_funcall(cNagaqueen, rb_intern("onFunctionStatic"), 1, (VALUE)(self));
+  rb_funcall((VALUE)(this), rb_intern("onFunctionStatic"), 0 );
 }
 
-void nq_onFunctionInline (void* self)
+void nq_onFunctionInline (void* this)
 {
-  rb_funcall(cNagaqueen, rb_intern("onFunctionInline"), 1, (VALUE)(self));
+  rb_funcall((VALUE)(this), rb_intern("onFunctionInline"), 0 );
 }
 
-void nq_onFunctionFinal (void* self)
+void nq_onFunctionFinal (void* this)
 {
-  rb_funcall(cNagaqueen, rb_intern("onFunctionFinal"), 1, (VALUE)(self));
+  rb_funcall((VALUE)(this), rb_intern("onFunctionFinal"), 0 );
 }
 
-void nq_onFunctionProto (void* self)
+void nq_onFunctionProto (void* this)
 {
-  rb_funcall(cNagaqueen, rb_intern("onFunctionProto"), 1, (VALUE)(self));
+  rb_funcall((VALUE)(this), rb_intern("onFunctionProto"), 0 );
 }
 
-void nq_onFunctionSuper (void* self)
+void nq_onFunctionSuper (void* this)
 {
-  rb_funcall(cNagaqueen, rb_intern("onFunctionSuper"), 1, (VALUE)(self));
+  rb_funcall((VALUE)(this), rb_intern("onFunctionSuper"), 0 );
 }
 
-void nq_onFunctionSuffix (void* self, char* name)
+void nq_onFunctionSuffix (void* this, char* name)
 {
-  rb_funcall(cNagaqueen, rb_intern("onFunctionSuffix"), 2, (VALUE)(self), rb_str_new2(name));
+  rb_funcall((VALUE)(this), rb_intern("onFunctionSuffix"), 1,  rb_str_new2(name));
 }
 
-void nq_onFunctionBody (void* self)
+void nq_onFunctionBody (void* this)
 {
-  rb_funcall(cNagaqueen, rb_intern("onFunctionBody"), 1, (VALUE)(self));
+  rb_funcall((VALUE)(this), rb_intern("onFunctionBody"), 0 );
 }
 
-void * nq_onFunctionEnd (void* self)
+void * nq_onFunctionEnd (void* this)
 {
-  rb_funcall(cNagaqueen, rb_intern("onFunctionEnd"), 1, (VALUE)(self));
+  rb_funcall((VALUE)(this), rb_intern("onFunctionEnd"), 0 );
 }
 
-void nq_onTypeArg (void* self, void* type)
+void nq_onTypeArg (void* this, void* type)
 {
-  rb_funcall(cNagaqueen, rb_intern("onTypeArg"), 2, (VALUE)(self), type);
+  rb_funcall((VALUE)(this), rb_intern("onTypeArg"), 1,  type);
 }
 
-void nq_onVarArg (void* self, char* name)
+void nq_onVarArg (void* this, char* name)
 {
-  rb_funcall(cNagaqueen, rb_intern("onVarArg"), 2, (VALUE)(self), rb_str_new2(name));
+  rb_funcall((VALUE)(this), rb_intern("onVarArg"), 1,  rb_str_new2(name));
 }
 
-void nq_onDotArg (void* self, char* name)
+void nq_onDotArg (void* this, char* name)
 {
-  rb_funcall(cNagaqueen, rb_intern("onDotArg"), 2, (VALUE)(self), rb_str_new2(name));
+  rb_funcall((VALUE)(this), rb_intern("onDotArg"), 1,  rb_str_new2(name));
 }
 
-void nq_onAssArg (void* self, char* name)
+void nq_onAssArg (void* this, char* name)
 {
-  rb_funcall(cNagaqueen, rb_intern("onAssArg"), 2, (VALUE)(self), rb_str_new2(name));
+  rb_funcall((VALUE)(this), rb_intern("onAssArg"), 1,  rb_str_new2(name));
 }
 
-void nq_onFunctionCallStart (void* self, char* yytext)
+void nq_onFunctionCallStart (void* this, char* yytext)
 {
-  rb_funcall(cNagaqueen, rb_intern("onFunctionCallStart"), 2, (VALUE)(self), rb_str_new2(yytext));
+  rb_funcall((VALUE)(this), rb_intern("onFunctionCallStart"), 1,  rb_str_new2(yytext));
 }
 
-void nq_onFunctionCallSuffix (void* self, char* yytext)
+void nq_onFunctionCallSuffix (void* this, char* yytext)
 {
-  rb_funcall(cNagaqueen, rb_intern("onFunctionCallSuffix"), 2, (VALUE)(self), rb_str_new2(yytext));
+  rb_funcall((VALUE)(this), rb_intern("onFunctionCallSuffix"), 1,  rb_str_new2(yytext));
 }
 
-void nq_onFunctionCallArg (void* self, void* expr)
+void nq_onFunctionCallArg (void* this, void* expr)
 {
-  rb_funcall(cNagaqueen, rb_intern("onFunctionCallArg"), 2, (VALUE)(self), expr);
+  rb_funcall((VALUE)(this), rb_intern("onFunctionCallArg"), 1,  expr);
 }
 
-void * nq_onFunctionCallEnd (void* self)
+void * nq_onFunctionCallEnd (void* this)
 {
-  rb_funcall(cNagaqueen, rb_intern("onFunctionCallEnd"), 1, (VALUE)(self));
+  rb_funcall((VALUE)(this), rb_intern("onFunctionCallEnd"), 0 );
 }
 
-void nq_onFunctionCallExpr (void* self, void* call, void* expr)
+void nq_onFunctionCallExpr (void* this, void* call, void* expr)
 {
-  rb_funcall(cNagaqueen, rb_intern("onFunctionCallExpr"), 3, (VALUE)(self), call, expr);
+  rb_funcall((VALUE)(this), rb_intern("onFunctionCallExpr"), 2,  call, expr);
 }
 
-void * nq_onFunctionCallChain (void* self, void* expr, void* call)
+void * nq_onFunctionCallChain (void* this, void* expr, void* call)
 {
-  rb_funcall(cNagaqueen, rb_intern("onFunctionCallChain"), 3, (VALUE)(self), expr, call);
+  rb_funcall((VALUE)(this), rb_intern("onFunctionCallChain"), 2,  expr, call);
 }
 
-void nq_onFunctionCallCombo (void* self, void* call, void* expr)
+void nq_onFunctionCallCombo (void* this, void* call, void* expr)
 {
-  rb_funcall(cNagaqueen, rb_intern("onFunctionCallCombo"), 3, (VALUE)(self), call, expr);
+  rb_funcall((VALUE)(this), rb_intern("onFunctionCallCombo"), 2,  call, expr);
 }
 
-void nq_onArrayLiteralStart (void* self)
+void nq_onArrayLiteralStart (void* this)
 {
-  rb_funcall(cNagaqueen, rb_intern("onArrayLiteralStart"), 1, (VALUE)(self));
+  rb_funcall((VALUE)(this), rb_intern("onArrayLiteralStart"), 0 );
 }
 
-void * nq_onArrayLiteralEnd (void* self)
+void * nq_onArrayLiteralEnd (void* this)
 {
-  rb_funcall(cNagaqueen, rb_intern("onArrayLiteralEnd"), 1, (VALUE)(self));
+  rb_funcall((VALUE)(this), rb_intern("onArrayLiteralEnd"), 0 );
 }
 
-void nq_onTupleStart (void* self)
+void nq_onTupleStart (void* this)
 {
-  rb_funcall(cNagaqueen, rb_intern("onTupleStart"), 1, (VALUE)(self));
+  rb_funcall((VALUE)(this), rb_intern("onTupleStart"), 0 );
 }
 
-void * nq_onTupleEnd (void* self)
+void * nq_onTupleEnd (void* this)
 {
-  rb_funcall(cNagaqueen, rb_intern("onTupleEnd"), 1, (VALUE)(self));
+  rb_funcall((VALUE)(this), rb_intern("onTupleEnd"), 0 );
 }
 
-void * nq_onStringLiteral (void* self, char* text)
+void * nq_onStringLiteral (void* this, char* text)
 {
-  rb_funcall(cNagaqueen, rb_intern("onStringLiteral"), 2, (VALUE)(self), rb_str_new2(text));
+  rb_funcall((VALUE)(this), rb_intern("onStringLiteral"), 1,  rb_str_new2(text));
 }
 
-void * nq_onCharLiteral (void* self, char* value)
+void * nq_onCharLiteral (void* this, char* value)
 {
-  rb_funcall(cNagaqueen, rb_intern("onCharLiteral"), 2, (VALUE)(self), rb_str_new2(value));
+  rb_funcall((VALUE)(this), rb_intern("onCharLiteral"), 1,  rb_str_new2(value));
 }
 
-void nq_onStatement (void* self, void* statement)
+void nq_onStatement (void* this, void* statement)
 {
-  rb_funcall(cNagaqueen, rb_intern("onStatement"), 2, (VALUE)(self), statement);
+  rb_funcall((VALUE)(this), rb_intern("onStatement"), 1,  statement);
 }
 
-void * nq_onReturn (void* self, void* expr)
+void * nq_onReturn (void* this, void* expr)
 {
-  rb_funcall(cNagaqueen, rb_intern("onReturn"), 2, (VALUE)(self), expr);
+  rb_funcall((VALUE)(this), rb_intern("onReturn"), 1,  expr);
 }
 
-void * nq_onVarAccess (void* self, void* expr, char* name)
+void * nq_onVarAccess (void* this, void* expr, char* name)
 {
-  rb_funcall(cNagaqueen, rb_intern("onVarAccess"), 3, (VALUE)(self), expr, rb_str_new2(name));
+  rb_funcall((VALUE)(this), rb_intern("onVarAccess"), 2,  expr, rb_str_new2(name));
 }
 
-void nq_onArrayAccessStart (void* self, void* array)
+void nq_onArrayAccessStart (void* this, void* array)
 {
-  rb_funcall(cNagaqueen, rb_intern("onArrayAccessStart"), 2, (VALUE)(self), array);
+  rb_funcall((VALUE)(this), rb_intern("onArrayAccessStart"), 1,  array);
 }
 
-void * nq_onArrayAccessEnd (void* self)
+void * nq_onArrayAccessEnd (void* this)
 {
-  rb_funcall(cNagaqueen, rb_intern("onArrayAccessEnd"), 1, (VALUE)(self));
+  rb_funcall((VALUE)(this), rb_intern("onArrayAccessEnd"), 0 );
 }
 
-void * nq_onCast (void* self, void* expr, void* type)
+void * nq_onCast (void* this, void* expr, void* type)
 {
-  rb_funcall(cNagaqueen, rb_intern("onCast"), 3, (VALUE)(self), expr, type);
+  rb_funcall((VALUE)(this), rb_intern("onCast"), 2,  expr, type);
 }
 
-void * nq_onBreak (void* self)
+void * nq_onBreak (void* this)
 {
-  rb_funcall(cNagaqueen, rb_intern("onBreak"), 1, (VALUE)(self));
+  rb_funcall((VALUE)(this), rb_intern("onBreak"), 0 );
 }
 
-void * nq_onContinue (void* self)
+void * nq_onContinue (void* this)
 {
-  rb_funcall(cNagaqueen, rb_intern("onContinue"), 1, (VALUE)(self));
+  rb_funcall((VALUE)(this), rb_intern("onContinue"), 0 );
 }
 
-void nq_onBlockStart (void* self)
+void nq_onBlockStart (void* this)
 {
-  rb_funcall(cNagaqueen, rb_intern("onBlockStart"), 1, (VALUE)(self));
+  rb_funcall((VALUE)(this), rb_intern("onBlockStart"), 0 );
 }
 
-void * nq_onBlockEnd (void* self)
+void * nq_onBlockEnd (void* this)
 {
-  rb_funcall(cNagaqueen, rb_intern("onBlockEnd"), 1, (VALUE)(self));
+  rb_funcall((VALUE)(this), rb_intern("onBlockEnd"), 0 );
 }
 
-void nq_onIfStart (void* self, void* condition)
+void nq_onIfStart (void* this, void* condition)
 {
-  rb_funcall(cNagaqueen, rb_intern("onIfStart"), 2, (VALUE)(self), condition);
+  rb_funcall((VALUE)(this), rb_intern("onIfStart"), 1,  condition);
 }
 
-void * nq_onIfEnd (void* self)
+void * nq_onIfEnd (void* this)
 {
-  rb_funcall(cNagaqueen, rb_intern("onIfEnd"), 1, (VALUE)(self));
+  rb_funcall((VALUE)(this), rb_intern("onIfEnd"), 0 );
 }
 
-void nq_onElseStart (void* self)
+void nq_onElseStart (void* this)
 {
-  rb_funcall(cNagaqueen, rb_intern("onElseStart"), 1, (VALUE)(self));
+  rb_funcall((VALUE)(this), rb_intern("onElseStart"), 0 );
 }
 
-void * nq_onElseEnd (void* self)
+void * nq_onElseEnd (void* this)
 {
-  rb_funcall(cNagaqueen, rb_intern("onElseEnd"), 1, (VALUE)(self));
+  rb_funcall((VALUE)(this), rb_intern("onElseEnd"), 0 );
 }
 
-void nq_onForeachStart (void* self, void* decl, void* collec)
+void nq_onForeachStart (void* this, void* decl, void* collec)
 {
-  rb_funcall(cNagaqueen, rb_intern("onForeachStart"), 3, (VALUE)(self), decl, collec);
+  rb_funcall((VALUE)(this), rb_intern("onForeachStart"), 2,  decl, collec);
 }
 
-void * nq_onForeachEnd (void* self)
+void * nq_onForeachEnd (void* this)
 {
-  rb_funcall(cNagaqueen, rb_intern("onForeachEnd"), 1, (VALUE)(self));
+  rb_funcall((VALUE)(this), rb_intern("onForeachEnd"), 0 );
 }
 
-void nq_onWhileStart (void* self, void* condition)
+void nq_onWhileStart (void* this, void* condition)
 {
-  rb_funcall(cNagaqueen, rb_intern("onWhileStart"), 2, (VALUE)(self), condition);
+  rb_funcall((VALUE)(this), rb_intern("onWhileStart"), 1,  condition);
 }
 
-void * nq_onWhileEnd (void* self)
+void * nq_onWhileEnd (void* this)
 {
-  rb_funcall(cNagaqueen, rb_intern("onWhileEnd"), 1, (VALUE)(self));
+  rb_funcall((VALUE)(this), rb_intern("onWhileEnd"), 0 );
 }
 
-void * nq_onEquals (void* self, void* left, void* right)
+void * nq_onEquals (void* this, void* left, void* right)
 {
-  rb_funcall(cNagaqueen, rb_intern("onEquals"), 3, (VALUE)(self), left, right);
+  rb_funcall((VALUE)(this), rb_intern("onEquals"), 2,  left, right);
 }
 
-void * nq_onNotEquals (void* self, void* left, void* right)
+void * nq_onNotEquals (void* this, void* left, void* right)
 {
-  rb_funcall(cNagaqueen, rb_intern("onNotEquals"), 3, (VALUE)(self), left, right);
+  rb_funcall((VALUE)(this), rb_intern("onNotEquals"), 2,  left, right);
 }
 
-void * nq_onLessThan (void* self, void* left, void* right)
+void * nq_onLessThan (void* this, void* left, void* right)
 {
-  rb_funcall(cNagaqueen, rb_intern("onLessThan"), 3, (VALUE)(self), left, right);
+  rb_funcall((VALUE)(this), rb_intern("onLessThan"), 2,  left, right);
 }
 
-void * nq_onMoreThan (void* self, void* left, void* right)
+void * nq_onMoreThan (void* this, void* left, void* right)
 {
-  rb_funcall(cNagaqueen, rb_intern("onMoreThan"), 3, (VALUE)(self), left, right);
+  rb_funcall((VALUE)(this), rb_intern("onMoreThan"), 2,  left, right);
 }
 
-void * nq_onCmp (void* self, void* left, void* right)
+void * nq_onCmp (void* this, void* left, void* right)
 {
-  rb_funcall(cNagaqueen, rb_intern("onCmp"), 3, (VALUE)(self), left, right);
+  rb_funcall((VALUE)(this), rb_intern("onCmp"), 2,  left, right);
 }
 
-void * nq_onLessThanOrEqual (void* self, void* left, void* right)
+void * nq_onLessThanOrEqual (void* this, void* left, void* right)
 {
-  rb_funcall(cNagaqueen, rb_intern("onLessThanOrEqual"), 3, (VALUE)(self), left, right);
+  rb_funcall((VALUE)(this), rb_intern("onLessThanOrEqual"), 2,  left, right);
 }
 
-void * nq_onMoreThanOrEqual (void* self, void* left, void* right)
+void * nq_onMoreThanOrEqual (void* this, void* left, void* right)
 {
-  rb_funcall(cNagaqueen, rb_intern("onMoreThanOrEqual"), 3, (VALUE)(self), left, right);
+  rb_funcall((VALUE)(this), rb_intern("onMoreThanOrEqual"), 2,  left, right);
 }
 
-void * nq_onDecLiteral (void* self, char* value)
+void * nq_onDecLiteral (void* this, char* value)
 {
-  rb_funcall(cNagaqueen, rb_intern("onDecLiteral"), 2, (VALUE)(self), rb_str_new2(value));
+  rb_funcall((VALUE)(this), rb_intern("onDecLiteral"), 1,  rb_str_new2(value));
 }
 
-void * nq_onBinLiteral (void* self, char* value)
+void * nq_onBinLiteral (void* this, char* value)
 {
-  rb_funcall(cNagaqueen, rb_intern("onBinLiteral"), 2, (VALUE)(self), rb_str_new2(value));
+  rb_funcall((VALUE)(this), rb_intern("onBinLiteral"), 1,  rb_str_new2(value));
 }
 
-void * nq_onOctLiteral (void* self, char* value)
+void * nq_onOctLiteral (void* this, char* value)
 {
-  rb_funcall(cNagaqueen, rb_intern("onOctLiteral"), 2, (VALUE)(self), rb_str_new2(value));
+  rb_funcall((VALUE)(this), rb_intern("onOctLiteral"), 1,  rb_str_new2(value));
 }
 
-void * nq_onHexLiteral (void* self, char* value)
+void * nq_onHexLiteral (void* this, char* value)
 {
-  rb_funcall(cNagaqueen, rb_intern("onHexLiteral"), 2, (VALUE)(self), rb_str_new2(value));
+  rb_funcall((VALUE)(this), rb_intern("onHexLiteral"), 1,  rb_str_new2(value));
 }
 
-void * nq_onFloatLiteral (void* self, char* value)
+void * nq_onFloatLiteral (void* this, char* value)
 {
-  rb_funcall(cNagaqueen, rb_intern("onFloatLiteral"), 2, (VALUE)(self), rb_str_new2(value));
+  rb_funcall((VALUE)(this), rb_intern("onFloatLiteral"), 1,  rb_str_new2(value));
 }
 
-void * nq_onBoolLiteral (void* self, bool value)
+void * nq_onBoolLiteral (void* this, bool value)
 {
-  rb_funcall(cNagaqueen, rb_intern("onBoolLiteral"), 2, (VALUE)(self), value);
+  rb_funcall((VALUE)(this), rb_intern("onBoolLiteral"), 1,  value);
 }
 
-void * nq_onNull (void* self)
+void * nq_onNull (void* this)
 {
-  rb_funcall(cNagaqueen, rb_intern("onNull"), 1, (VALUE)(self));
+  rb_funcall((VALUE)(this), rb_intern("onNull"), 0 );
 }
 
-void * nq_onDoubleArrow (void* self, void* left, void* right)
+void * nq_onDoubleArrow (void* this, void* left, void* right)
 {
-  rb_funcall(cNagaqueen, rb_intern("onDoubleArrow"), 3, (VALUE)(self), left, right);
+  rb_funcall((VALUE)(this), rb_intern("onDoubleArrow"), 2,  left, right);
 }
 
-void * nq_onTernary (void* self, void* condition, void* ifTrue, void* ifFalse)
+void * nq_onTernary (void* this, void* condition, void* ifTrue, void* ifFalse)
 {
-  rb_funcall(cNagaqueen, rb_intern("onTernary"), 4, (VALUE)(self), condition, ifTrue, ifFalse);
+  rb_funcall((VALUE)(this), rb_intern("onTernary"), 3,  condition, ifTrue, ifFalse);
 }
 
-void * nq_onAssignAnd (void* self, void* left, void* right)
+void * nq_onAssignAnd (void* this, void* left, void* right)
 {
-  rb_funcall(cNagaqueen, rb_intern("onAssignAnd"), 3, (VALUE)(self), left, right);
+  rb_funcall((VALUE)(this), rb_intern("onAssignAnd"), 2,  left, right);
 }
 
-void * nq_onAssignOr (void* self, void* left, void* right)
+void * nq_onAssignOr (void* this, void* left, void* right)
 {
-  rb_funcall(cNagaqueen, rb_intern("onAssignOr"), 3, (VALUE)(self), left, right);
+  rb_funcall((VALUE)(this), rb_intern("onAssignOr"), 2,  left, right);
 }
 
-void * nq_onAssignXor (void* self, void* left, void* right)
+void * nq_onAssignXor (void* this, void* left, void* right)
 {
-  rb_funcall(cNagaqueen, rb_intern("onAssignXor"), 3, (VALUE)(self), left, right);
+  rb_funcall((VALUE)(this), rb_intern("onAssignXor"), 2,  left, right);
 }
 
-void * nq_onAssignRightShift (void* self, void* left, void* right)
+void * nq_onAssignRightShift (void* this, void* left, void* right)
 {
-  rb_funcall(cNagaqueen, rb_intern("onAssignRightShift"), 3, (VALUE)(self), left, right);
+  rb_funcall((VALUE)(this), rb_intern("onAssignRightShift"), 2,  left, right);
 }
 
-void * nq_onAssignLeftShift (void* self, void* left, void* right)
+void * nq_onAssignLeftShift (void* this, void* left, void* right)
 {
-  rb_funcall(cNagaqueen, rb_intern("onAssignLeftShift"), 3, (VALUE)(self), left, right);
+  rb_funcall((VALUE)(this), rb_intern("onAssignLeftShift"), 2,  left, right);
 }
 
-void * nq_onAssignDiv (void* self, void* left, void* right)
+void * nq_onAssignDiv (void* this, void* left, void* right)
 {
-  rb_funcall(cNagaqueen, rb_intern("onAssignDiv"), 3, (VALUE)(self), left, right);
+  rb_funcall((VALUE)(this), rb_intern("onAssignDiv"), 2,  left, right);
 }
 
-void * nq_onAssignMul (void* self, void* left, void* right)
+void * nq_onAssignMul (void* this, void* left, void* right)
 {
-  rb_funcall(cNagaqueen, rb_intern("onAssignMul"), 3, (VALUE)(self), left, right);
+  rb_funcall((VALUE)(this), rb_intern("onAssignMul"), 2,  left, right);
 }
 
-void * nq_onAssignExp (void* self, void* left, void* right)
+void * nq_onAssignExp (void* this, void* left, void* right)
 {
-  rb_funcall(cNagaqueen, rb_intern("onAssignExp"), 3, (VALUE)(self), left, right);
+  rb_funcall((VALUE)(this), rb_intern("onAssignExp"), 2,  left, right);
 }
 
-void * nq_onAssignSub (void* self, void* left, void* right)
+void * nq_onAssignSub (void* this, void* left, void* right)
 {
-  rb_funcall(cNagaqueen, rb_intern("onAssignSub"), 3, (VALUE)(self), left, right);
+  rb_funcall((VALUE)(this), rb_intern("onAssignSub"), 2,  left, right);
 }
 
-void * nq_onAssignAdd (void* self, void* left, void* right)
+void * nq_onAssignAdd (void* this, void* left, void* right)
 {
-  rb_funcall(cNagaqueen, rb_intern("onAssignAdd"), 3, (VALUE)(self), left, right);
+  rb_funcall((VALUE)(this), rb_intern("onAssignAdd"), 2,  left, right);
 }
 
-void * nq_onAssign (void* self, void* left, void* right)
+void * nq_onAssign (void* this, void* left, void* right)
 {
-  rb_funcall(cNagaqueen, rb_intern("onAssign"), 3, (VALUE)(self), left, right);
+  rb_funcall((VALUE)(this), rb_intern("onAssign"), 2,  left, right);
 }
 
-void * nq_onAdd (void* self, void* left, void* right)
+void * nq_onAdd (void* this, void* left, void* right)
 {
-  rb_funcall(cNagaqueen, rb_intern("onAdd"), 3, (VALUE)(self), left, right);
+  rb_funcall((VALUE)(this), rb_intern("onAdd"), 2,  left, right);
 }
 
-void * nq_onSub (void* self, void* left, void* right)
+void * nq_onSub (void* this, void* left, void* right)
 {
-  rb_funcall(cNagaqueen, rb_intern("onSub"), 3, (VALUE)(self), left, right);
+  rb_funcall((VALUE)(this), rb_intern("onSub"), 2,  left, right);
 }
 
-void * nq_onMod (void* self, void* left, void* right)
+void * nq_onMod (void* this, void* left, void* right)
 {
-  rb_funcall(cNagaqueen, rb_intern("onMod"), 3, (VALUE)(self), left, right);
+  rb_funcall((VALUE)(this), rb_intern("onMod"), 2,  left, right);
 }
 
-void * nq_onMul (void* self, void* left, void* right)
+void * nq_onMul (void* this, void* left, void* right)
 {
-  rb_funcall(cNagaqueen, rb_intern("onMul"), 3, (VALUE)(self), left, right);
+  rb_funcall((VALUE)(this), rb_intern("onMul"), 2,  left, right);
 }
 
-void * nq_onExp (void* self, void* left, void* right)
+void * nq_onExp (void* this, void* left, void* right)
 {
-  rb_funcall(cNagaqueen, rb_intern("onExp"), 3, (VALUE)(self), left, right);
+  rb_funcall((VALUE)(this), rb_intern("onExp"), 2,  left, right);
 }
 
-void * nq_onDiv (void* self, void* left, void* right)
+void * nq_onDiv (void* this, void* left, void* right)
 {
-  rb_funcall(cNagaqueen, rb_intern("onDiv"), 3, (VALUE)(self), left, right);
+  rb_funcall((VALUE)(this), rb_intern("onDiv"), 2,  left, right);
 }
 
-void * nq_onRangeLiteral (void* self, void* left, void* right)
+void * nq_onRangeLiteral (void* this, void* left, void* right)
 {
-  rb_funcall(cNagaqueen, rb_intern("onRangeLiteral"), 3, (VALUE)(self), left, right);
+  rb_funcall((VALUE)(this), rb_intern("onRangeLiteral"), 2,  left, right);
 }
 
-void * nq_onBinaryLeftShift (void* self, void* left, void* right)
+void * nq_onBinaryLeftShift (void* this, void* left, void* right)
 {
-  rb_funcall(cNagaqueen, rb_intern("onBinaryLeftShift"), 3, (VALUE)(self), left, right);
+  rb_funcall((VALUE)(this), rb_intern("onBinaryLeftShift"), 2,  left, right);
 }
 
-void * nq_onBinaryRightShift (void* self, void* left, void* right)
+void * nq_onBinaryRightShift (void* this, void* left, void* right)
 {
-  rb_funcall(cNagaqueen, rb_intern("onBinaryRightShift"), 3, (VALUE)(self), left, right);
+  rb_funcall((VALUE)(this), rb_intern("onBinaryRightShift"), 2,  left, right);
 }
 
-void * nq_onLogicalOr (void* self, void* left, void* right)
+void * nq_onLogicalOr (void* this, void* left, void* right)
 {
-  rb_funcall(cNagaqueen, rb_intern("onLogicalOr"), 3, (VALUE)(self), left, right);
+  rb_funcall((VALUE)(this), rb_intern("onLogicalOr"), 2,  left, right);
 }
 
-void * nq_onLogicalAnd (void* self, void* left, void* right)
+void * nq_onLogicalAnd (void* this, void* left, void* right)
 {
-  rb_funcall(cNagaqueen, rb_intern("onLogicalAnd"), 3, (VALUE)(self), left, right);
+  rb_funcall((VALUE)(this), rb_intern("onLogicalAnd"), 2,  left, right);
 }
 
-void * nq_onBinaryOr (void* self, void* left, void* right)
+void * nq_onBinaryOr (void* this, void* left, void* right)
 {
-  rb_funcall(cNagaqueen, rb_intern("onBinaryOr"), 3, (VALUE)(self), left, right);
+  rb_funcall((VALUE)(this), rb_intern("onBinaryOr"), 2,  left, right);
 }
 
-void * nq_onBinaryXor (void* self, void* left, void* right)
+void * nq_onBinaryXor (void* this, void* left, void* right)
 {
-  rb_funcall(cNagaqueen, rb_intern("onBinaryXor"), 3, (VALUE)(self), left, right);
+  rb_funcall((VALUE)(this), rb_intern("onBinaryXor"), 2,  left, right);
 }
 
-void * nq_onBinaryAnd (void* self, void* left, void* right)
+void * nq_onBinaryAnd (void* this, void* left, void* right)
 {
-  rb_funcall(cNagaqueen, rb_intern("onBinaryAnd"), 3, (VALUE)(self), left, right);
+  rb_funcall((VALUE)(this), rb_intern("onBinaryAnd"), 2,  left, right);
 }
 
-void * nq_onLogicalNot (void* self, void* inner)
+void * nq_onLogicalNot (void* this, void* inner)
 {
-  rb_funcall(cNagaqueen, rb_intern("onLogicalNot"), 2, (VALUE)(self), inner);
+  rb_funcall((VALUE)(this), rb_intern("onLogicalNot"), 1,  inner);
 }
 
-void * nq_onBinaryNot (void* self, void* inner)
+void * nq_onBinaryNot (void* this, void* inner)
 {
-  rb_funcall(cNagaqueen, rb_intern("onBinaryNot"), 2, (VALUE)(self), inner);
+  rb_funcall((VALUE)(this), rb_intern("onBinaryNot"), 1,  inner);
 }
 
-void * nq_onUnaryMinus (void* self, void* inner)
+void * nq_onUnaryMinus (void* this, void* inner)
 {
-  rb_funcall(cNagaqueen, rb_intern("onUnaryMinus"), 2, (VALUE)(self), inner);
+  rb_funcall((VALUE)(this), rb_intern("onUnaryMinus"), 1,  inner);
 }
 
-void * nq_onParenthesis (void* self, void* inner)
+void * nq_onParenthesis (void* this, void* inner)
 {
-  rb_funcall(cNagaqueen, rb_intern("onParenthesis"), 2, (VALUE)(self), inner);
+  rb_funcall((VALUE)(this), rb_intern("onParenthesis"), 1,  inner);
 }
 
-void nq_onGenericArgument (void* self, char* name)
+void nq_onGenericArgument (void* this, char* name)
 {
-  rb_funcall(cNagaqueen, rb_intern("onGenericArgument"), 2, (VALUE)(self), rb_str_new2(name));
+  rb_funcall((VALUE)(this), rb_intern("onGenericArgument"), 1,  rb_str_new2(name));
 }
 
-void * nq_onAddressOf (void* self, void* inner)
+void * nq_onAddressOf (void* this, void* inner)
 {
-  rb_funcall(cNagaqueen, rb_intern("onAddressOf"), 2, (VALUE)(self), inner);
+  rb_funcall((VALUE)(this), rb_intern("onAddressOf"), 1,  inner);
 }
 
-void * nq_onDereference (void* self, void* inner)
+void * nq_onDereference (void* this, void* inner)
 {
-  rb_funcall(cNagaqueen, rb_intern("onDereference"), 2, (VALUE)(self), inner);
+  rb_funcall((VALUE)(this), rb_intern("onDereference"), 1,  inner);
 }
 
-void nq_onMatchStart (void* self)
+void nq_onMatchStart (void* this)
 {
-  rb_funcall(cNagaqueen, rb_intern("onMatchStart"), 1, (VALUE)(self));
+  rb_funcall((VALUE)(this), rb_intern("onMatchStart"), 0 );
 }
 
-void nq_onMatchExpr (void* self, void* value)
+void nq_onMatchExpr (void* this, void* value)
 {
-  rb_funcall(cNagaqueen, rb_intern("onMatchExpr"), 2, (VALUE)(self), value);
+  rb_funcall((VALUE)(this), rb_intern("onMatchExpr"), 1,  value);
 }
 
-void * nq_onMatchEnd (void* self)
+void * nq_onMatchEnd (void* this)
 {
-  rb_funcall(cNagaqueen, rb_intern("onMatchEnd"), 1, (VALUE)(self));
+  rb_funcall((VALUE)(this), rb_intern("onMatchEnd"), 0 );
 }
 
-void nq_onCaseStart (void* self)
+void nq_onCaseStart (void* this)
 {
-  rb_funcall(cNagaqueen, rb_intern("onCaseStart"), 1, (VALUE)(self));
+  rb_funcall((VALUE)(this), rb_intern("onCaseStart"), 0 );
 }
 
-void nq_onCaseExpr (void* self, void* value)
+void nq_onCaseExpr (void* this, void* value)
 {
-  rb_funcall(cNagaqueen, rb_intern("onCaseExpr"), 2, (VALUE)(self), value);
+  rb_funcall((VALUE)(this), rb_intern("onCaseExpr"), 1,  value);
 }
 
-void nq_onCaseEnd (void* self)
+void nq_onCaseEnd (void* this)
 {
-  rb_funcall(cNagaqueen, rb_intern("onCaseEnd"), 1, (VALUE)(self));
+  rb_funcall((VALUE)(this), rb_intern("onCaseEnd"), 0 );
 }
 
-void nq_onTryStart (void* self)
+void nq_onTryStart (void* this)
 {
-  rb_funcall(cNagaqueen, rb_intern("onTryStart"), 1, (VALUE)(self));
+  rb_funcall((VALUE)(this), rb_intern("onTryStart"), 0 );
 }
 
-void * nq_onTryEnd (void* self)
+void * nq_onTryEnd (void* this)
 {
-  rb_funcall(cNagaqueen, rb_intern("onTryEnd"), 1, (VALUE)(self));
+  rb_funcall((VALUE)(this), rb_intern("onTryEnd"), 0 );
 }
 
-void nq_onCatchStart (void* self)
+void nq_onCatchStart (void* this)
 {
-  rb_funcall(cNagaqueen, rb_intern("onCatchStart"), 1, (VALUE)(self));
+  rb_funcall((VALUE)(this), rb_intern("onCatchStart"), 0 );
 }
 
-void nq_onCatchExpr (void* self, void* value)
+void nq_onCatchExpr (void* this, void* value)
 {
-  rb_funcall(cNagaqueen, rb_intern("onCatchExpr"), 2, (VALUE)(self), value);
+  rb_funcall((VALUE)(this), rb_intern("onCatchExpr"), 1,  value);
 }
 
-void nq_onCatchEnd (void* self)
+void nq_onCatchEnd (void* this)
 {
-  rb_funcall(cNagaqueen, rb_intern("onCatchEnd"), 1, (VALUE)(self));
+  rb_funcall((VALUE)(this), rb_intern("onCatchEnd"), 0 );
 }
 
-void nq_error (void* self, int errorID, char* defaultMessage, int index)
+void nq_error (void* this, int errorID, char* defaultMessage, int index)
 {
-  rb_funcall(cNagaqueen, rb_intern("error"), 4, (VALUE)(self), INT2NUM(errorID), rb_str_new2(defaultMessage), INT2NUM(index));
+  rb_funcall((VALUE)(this), rb_intern("error"), 3,  INT2NUM(errorID), rb_str_new2(defaultMessage), INT2NUM(index));
 }
 

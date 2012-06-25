@@ -18,7 +18,7 @@ int _nq_parse(VALUE self, char *path) {
 
     NagaQueenCore *core = YY_ALLOC(sizeof(NagaQueenCore), 0);
     core->yylineno = 0;
-    core->this = &self;
+    core->this = (void*)self;
     core->path = path;
     core->stream = fopen(path, "r");
     nq_setTokenPositionPointer(core->this, core->token);

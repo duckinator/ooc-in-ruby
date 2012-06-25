@@ -19,7 +19,11 @@ echo "
 echo 'module Nagaqueen' >> $FILE
 echo '  class << self' >> $FILE
 
-cat $DIR/nagaqueen/boilerplate.h |grep -E '^[a-z]' | sed 's/ \* /\* /' | cut -d' ' -f2- | sed 's/^ //' | sed 's/void\* self/_/' | sed -r 's/(void\*|char\*|char|int\*|int|bool|_Bool) //g' | sed 's/nq_//' | sed 's/^/    def /' | sed 's/$/\n    end\n/' >> $FILE
+cat $DIR/nagaqueen/boilerplate.h |grep -E '^[a-z]' | sed 's/ \* /\* /' | cut -d' ' -f2- | sed 's/^ //' | sed -r 's/(void\*|char\*|char|int\*|int|bool|_Bool) //g' | sed 's/nq_//' | sed 's/^/#    def /' | sed 's/$/\n#    end\n/' >> $FILE
+
+echo '    def method_missing(name, *args)' >> $FILE
+echo '      puts "#{name}(#{args.map(&:inspect).join(", ")})"' >> $FILE
+echo '    end' >> $FILE
 
 echo '  end' >> $FILE
 echo 'end' >> $FILE

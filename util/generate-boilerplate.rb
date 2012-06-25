@@ -9,21 +9,6 @@ def func(ftype, fname, args)
   fname.strip!
   args.map {|x| x.map(&:strip) }
 
-=begin
-  args.map! do |x|
-    type, name = x
-    type = case type
-    when 'void*'
-        # TODO: Check if VALUE will actually work in place of void*
-      'VALUE'
-    else
-      type
-    end
-
-    [type, name]
-  end
-=end
-
   def_args = args.map do |x|
     if x.is_a?(Array)
       x.join(' ')
@@ -33,11 +18,6 @@ def func(ftype, fname, args)
   end
 
   call_args = args.map do |type, name|
-    # Should work: https://github.com/ruby/ruby/blob/trunk/README.EXT#L140
-    if name == 'self'
-      name = '(VALUE)(self)'
-    end
-
     case type
     when 'int'
       "INT2NUM(#{name})"
@@ -50,10 +30,17 @@ def func(ftype, fname, args)
     end
   end
 
+  receiver = 'cNagaqueen'
+
+  if call_args[0] == 'this'
+    receiver = '(VALUE)(this)'
+    call_args.shift
+  end
+
   <<EOF
 #{ftype} nq_#{fname} (#{def_args.join(', ')})
 {
-  rb_funcall(cNagaqueen, rb_intern("#{fname}"), #{call_args.length}, #{call_args.join(', ')});
+  rb_funcall(#{receiver}, rb_intern("#{fname}"), #{call_args.length}#{', ' if call_args.length > 0} #{call_args.join(', ')});
 }
 
 EOF
@@ -66,11 +53,6 @@ def generate_code(line)
     args.gsub!(' *', '* ')
     args = args.split(',').map(&:strip).map(&:split)
 
-    # Switch 'void *this' with 'VALUE self'
-    #args[0] = ['VALUE', 'self'] if args[0][1] == 'this'
-    args[0][1] = 'self' if args[0][1] == 'this'
-
-    #pp [type, name, args]
     func(type, name, args)
   end
 end

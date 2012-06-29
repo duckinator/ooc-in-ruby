@@ -11,17 +11,21 @@
 
 module Nagaqueen
   class << self
-#    def setTokenPositionPointer (tokenPosPointer)
-#    end
+    def setTokenPositionPointer (tokenPos)
+      @tokenPos = tokenPos
+    end
 
-#    def StringClone (string)
-#    end
+    def StringClone (string)
+      string.dup
+    end
 
-#    def trailingQuest (string)
-#    end
+    def trailingQuest (string)
+      string + "__quest"
+    end
 
-#    def trailingBang (string)
-#    end
+    def trailingBang (string)
+      string + "__bang"
+    end
 
 #    def onUse (name)
 #    end
@@ -347,8 +351,9 @@ module Nagaqueen
 #    def onTupleEnd
 #    end
 
-#    def onStringLiteral (text)
-#    end
+    def onStringLiteral (text)
+      text
+    end
 
 #    def onCharLiteral (value)
 #    end

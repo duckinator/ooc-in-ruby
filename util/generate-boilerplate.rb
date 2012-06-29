@@ -40,8 +40,9 @@ def func(ftype, fname, args)
   return_value = case ftype
   when 'char *'
     'rb_string_value_cstr(tmp)'
-#  when 'void *'
-#    'tmp'
+  # FIXME: the next 2 lines make it cry.
+  when 'void *'
+    'tmp'
   end
 
   prefix, postfix = nil

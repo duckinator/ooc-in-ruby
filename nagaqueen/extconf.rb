@@ -2,7 +2,7 @@
 
 require 'mkmf'
 
-$CFLAGS='-std=c99'
+$CFLAGS='-std=c99 -ggdb'
 
 create_makefile('nagaqueen')
 

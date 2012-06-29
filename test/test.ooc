@@ -1,1 +1,3 @@
 "tada"
+
+foo? := "tada"

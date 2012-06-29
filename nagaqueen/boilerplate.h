@@ -5,17 +5,23 @@ void nq_setTokenPositionPointer (void* this, int* tokenPosPointer)
 
 char * nq_StringClone (char* string)
 {
-  rb_string_value_cstr((VALUE*)(rb_funcall(cNagaqueen, rb_intern("StringClone"), 1,  rb_str_new2(string))));
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall(cNagaqueen, rb_intern("StringClone"), 1,  rb_str_new2(string));
+  return rb_string_value_cstr(tmp);
 }
 
 char * nq_trailingQuest (char* string)
 {
-  rb_string_value_cstr((VALUE*)(rb_funcall(cNagaqueen, rb_intern("trailingQuest"), 1,  rb_str_new2(string))));
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall(cNagaqueen, rb_intern("trailingQuest"), 1,  rb_str_new2(string));
+  return rb_string_value_cstr(tmp);
 }
 
 char * nq_trailingBang (char* string)
 {
-  rb_string_value_cstr((VALUE*)(rb_funcall(cNagaqueen, rb_intern("trailingBang"), 1,  rb_str_new2(string))));
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall(cNagaqueen, rb_intern("trailingBang"), 1,  rb_str_new2(string));
+  return rb_string_value_cstr(tmp);
 }
 
 void nq_onUse (void* this, char* name)

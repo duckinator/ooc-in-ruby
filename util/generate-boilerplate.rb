@@ -37,19 +37,31 @@ def func(ftype, fname, args)
     call_args.shift
   end
 
-  str_cstr_start, str_cstr_end = nil
-  if ftype == 'char *'
-    str_cstr_start = 'rb_string_value_cstr((VALUE*)('
-    str_cstr_end   = '))'
+  return_value = case ftype
+  when 'char *'
+    'rb_string_value_cstr(tmp)'
+#  when 'void *'
+#    'tmp'
   end
 
-  <<EOF
+  prefix, postfix = nil
+
+  unless return_value.nil?
+    prefix  = "VALUE *tmp = malloc(sizeof(VALUE));\n  *tmp = "
+    postfix = "return #{return_value};"
+  end
+
+  ret = <<EOF
 #{ftype} nq_#{fname} (#{def_args.join(', ')})
 {
-  #{str_cstr_start}rb_funcall(#{receiver}, rb_intern("#{fname}"), #{call_args.length}#{', ' if call_args.length > 0} #{call_args.join(', ')})#{str_cstr_end};
+  #{prefix}rb_funcall(#{receiver}, rb_intern("#{fname}"), #{call_args.length}#{', ' if call_args.length > 0} #{call_args.join(', ')});
+  #{postfix}
 }
 
 EOF
+
+  # The .gsub is just to make it prettier.
+  ret.gsub("\n  \n", "\n")
 end
 
 def generate_code(line)

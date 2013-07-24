@@ -394,9 +394,9 @@ void nq_onFuncTypeReturnType (void* this, void* funcType, void* returnType)
   rb_funcall((VALUE)(this), rb_intern("onFuncTypeReturnType"), 2,  funcType, returnType);
 }
 
-void nq_onOperatorStart (void* this, char* symbol)
+void nq_onOperatorStart (void* this)
 {
-  rb_funcall((VALUE)(this), rb_intern("onOperatorStart"), 1,  rb_str_new2(symbol));
+  rb_funcall((VALUE)(this), rb_intern("onOperatorStart"), 0 );
 }
 
 void nq_onOperatorEnd (void* this)

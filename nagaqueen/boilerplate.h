@@ -399,6 +399,21 @@ void nq_onOperatorStart (void* this)
   rb_funcall((VALUE)(this), rb_intern("onOperatorStart"), 0 );
 }
 
+void nq_onOperatorByref (void* this)
+{
+  rb_funcall((VALUE)(this), rb_intern("onOperatorByref"), 0 );
+}
+
+void nq_onOperatorSymbol (void* this, char* symbol)
+{
+  rb_funcall((VALUE)(this), rb_intern("onOperatorSymbol"), 1,  rb_str_new2(symbol));
+}
+
+void nq_onOperatorBodyStart (void* this)
+{
+  rb_funcall((VALUE)(this), rb_intern("onOperatorBodyStart"), 0 );
+}
+
 void nq_onOperatorEnd (void* this)
 {
   rb_funcall((VALUE)(this), rb_intern("onOperatorEnd"), 0 );

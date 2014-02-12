@@ -51,22 +51,30 @@ void nq_onImportNamespace (void* this, char* namespace, int quantity)
 
 void * nq_onVersionName (void* this, char* name)
 {
-  rb_funcall((VALUE)(this), rb_intern("onVersionName"), 1,  rb_str_new2(name));
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onVersionName"), 1,  rb_str_new2(name));
+  return tmp;
 }
 
 void * nq_onVersionNegation (void* this, void* spec)
 {
-  rb_funcall((VALUE)(this), rb_intern("onVersionNegation"), 1,  spec);
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onVersionNegation"), 1,  spec);
+  return tmp;
 }
 
 void * nq_onVersionAnd (void* this, void* specLeft, void* specRight)
 {
-  rb_funcall((VALUE)(this), rb_intern("onVersionAnd"), 2,  specLeft, specRight);
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onVersionAnd"), 2,  specLeft, specRight);
+  return tmp;
 }
 
 void * nq_onVersionOr (void* this, void* specLeft, void* specRight)
 {
-  rb_funcall((VALUE)(this), rb_intern("onVersionOr"), 2,  specLeft, specRight);
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onVersionOr"), 2,  specLeft, specRight);
+  return tmp;
 }
 
 void nq_onVersionStart (void* this, void* spec)
@@ -76,7 +84,9 @@ void nq_onVersionStart (void* this, void* spec)
 
 void * nq_onVersionElseIfStart (void* this, void* notSpec, void* elseSpec)
 {
-  rb_funcall((VALUE)(this), rb_intern("onVersionElseIfStart"), 2,  notSpec, elseSpec);
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onVersionElseIfStart"), 2,  notSpec, elseSpec);
+  return tmp;
 }
 
 void nq_onVersionElseStart (void* this, void* notSpec)
@@ -86,7 +96,9 @@ void nq_onVersionElseStart (void* this, void* notSpec)
 
 void * nq_onVersionEnd (void* this)
 {
-  rb_funcall((VALUE)(this), rb_intern("onVersionEnd"), 0 );
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onVersionEnd"), 0 );
+  return tmp;
 }
 
 void nq_onExtendStart (void* this, void* type, char* doc)
@@ -241,7 +253,9 @@ void nq_onPropertyDeclType (void* this, void* type)
 
 void * nq_onPropertyDeclEnd (void* this)
 {
-  rb_funcall((VALUE)(this), rb_intern("onPropertyDeclEnd"), 0 );
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onPropertyDeclEnd"), 0 );
+  return tmp;
 }
 
 void nq_onPropertyDeclGetterStart (void* this, char* doc)
@@ -251,7 +265,9 @@ void nq_onPropertyDeclGetterStart (void* this, char* doc)
 
 void * nq_onPropertyDeclGetterEnd (void* this)
 {
-  rb_funcall((VALUE)(this), rb_intern("onPropertyDeclGetterEnd"), 0 );
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onPropertyDeclGetterEnd"), 0 );
+  return tmp;
 }
 
 void nq_onPropertyDeclSetterStart (void* this, char* doc)
@@ -266,7 +282,9 @@ void nq_onPropertyDeclSetterArgument (void* this, char* name, _Bool conventional
 
 void * nq_onPropertyDeclSetterEnd (void* this)
 {
-  rb_funcall((VALUE)(this), rb_intern("onPropertyDeclSetterEnd"), 0 );
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onPropertyDeclSetterEnd"), 0 );
+  return tmp;
 }
 
 void nq_onVarDeclStart (void* this)
@@ -321,32 +339,44 @@ void nq_onVarDeclProto (void* this)
 
 void * nq_onVarDeclEnd (void* this)
 {
-  rb_funcall((VALUE)(this), rb_intern("onVarDeclEnd"), 0 );
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onVarDeclEnd"), 0 );
+  return tmp;
 }
 
 void * nq_onTypeAccess (void* this, void* type)
 {
-  rb_funcall((VALUE)(this), rb_intern("onTypeAccess"), 1,  type);
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onTypeAccess"), 1,  type);
+  return tmp;
 }
 
 void * nq_onTypeNew (void* this, char* name)
 {
-  rb_funcall((VALUE)(this), rb_intern("onTypeNew"), 1,  rb_str_new2(name));
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onTypeNew"), 1,  rb_str_new2(name));
+  return tmp;
 }
 
 void * nq_onTypePointer (void* this, void* type)
 {
-  rb_funcall((VALUE)(this), rb_intern("onTypePointer"), 1,  type);
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onTypePointer"), 1,  type);
+  return tmp;
 }
 
 void * nq_onTypeReference (void* this, void* type)
 {
-  rb_funcall((VALUE)(this), rb_intern("onTypeReference"), 1,  type);
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onTypeReference"), 1,  type);
+  return tmp;
 }
 
 void * nq_onTypeBrackets (void* this, void* type, void* inner)
 {
-  rb_funcall((VALUE)(this), rb_intern("onTypeBrackets"), 2,  type, inner);
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onTypeBrackets"), 2,  type, inner);
+  return tmp;
 }
 
 void nq_onTypeGenericArgument (void* this, void* type, void* genType)
@@ -361,12 +391,16 @@ void nq_onFuncTypeGenericArgument (void* this, void* type, char* name)
 
 void * nq_onTypeList (void* this)
 {
-  rb_funcall((VALUE)(this), rb_intern("onTypeList"), 0 );
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onTypeList"), 0 );
+  return tmp;
 }
 
 void * nq_onTypeListElement (void* this, void* list, void* elem)
 {
-  rb_funcall((VALUE)(this), rb_intern("onTypeListElement"), 2,  list, elem);
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onTypeListElement"), 2,  list, elem);
+  return tmp;
 }
 
 void nq_onTypeNamespace (void* this, void* type, void* ident)
@@ -376,7 +410,9 @@ void nq_onTypeNamespace (void* this, void* type, void* ident)
 
 void * nq_onFuncTypeNew (void* this)
 {
-  rb_funcall((VALUE)(this), rb_intern("onFuncTypeNew"), 0 );
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onFuncTypeNew"), 0 );
+  return tmp;
 }
 
 void nq_onFuncTypeArgument (void* this, void* funcType, void* argType)
@@ -501,7 +537,9 @@ void nq_onFunctionBody (void* this)
 
 void * nq_onFunctionEnd (void* this)
 {
-  rb_funcall((VALUE)(this), rb_intern("onFunctionEnd"), 0 );
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onFunctionEnd"), 0 );
+  return tmp;
 }
 
 void nq_onTypeArg (void* this, void* type)
@@ -541,7 +579,9 @@ void nq_onFunctionCallArg (void* this, void* expr)
 
 void * nq_onFunctionCallEnd (void* this)
 {
-  rb_funcall((VALUE)(this), rb_intern("onFunctionCallEnd"), 0 );
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onFunctionCallEnd"), 0 );
+  return tmp;
 }
 
 void nq_onFunctionCallExpr (void* this, void* call, void* expr)
@@ -551,7 +591,9 @@ void nq_onFunctionCallExpr (void* this, void* call, void* expr)
 
 void * nq_onFunctionCallChain (void* this, void* expr, void* call)
 {
-  rb_funcall((VALUE)(this), rb_intern("onFunctionCallChain"), 2,  expr, call);
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onFunctionCallChain"), 2,  expr, call);
+  return tmp;
 }
 
 void nq_onFunctionCallCombo (void* this, void* call, void* expr)
@@ -566,7 +608,9 @@ void nq_onArrayLiteralStart (void* this)
 
 void * nq_onArrayLiteralEnd (void* this)
 {
-  rb_funcall((VALUE)(this), rb_intern("onArrayLiteralEnd"), 0 );
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onArrayLiteralEnd"), 0 );
+  return tmp;
 }
 
 void nq_onTupleStart (void* this)
@@ -576,17 +620,23 @@ void nq_onTupleStart (void* this)
 
 void * nq_onTupleEnd (void* this)
 {
-  rb_funcall((VALUE)(this), rb_intern("onTupleEnd"), 0 );
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onTupleEnd"), 0 );
+  return tmp;
 }
 
 void * nq_onStringLiteral (void* this, char* text)
 {
-  rb_funcall((VALUE)(this), rb_intern("onStringLiteral"), 1,  rb_str_new2(text));
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onStringLiteral"), 1,  rb_str_new2(text));
+  return tmp;
 }
 
 void * nq_onCharLiteral (void* this, char* value)
 {
-  rb_funcall((VALUE)(this), rb_intern("onCharLiteral"), 1,  rb_str_new2(value));
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onCharLiteral"), 1,  rb_str_new2(value));
+  return tmp;
 }
 
 void nq_onStatement (void* this, void* statement)
@@ -596,12 +646,16 @@ void nq_onStatement (void* this, void* statement)
 
 void * nq_onReturn (void* this, void* expr)
 {
-  rb_funcall((VALUE)(this), rb_intern("onReturn"), 1,  expr);
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onReturn"), 1,  expr);
+  return tmp;
 }
 
 void * nq_onVarAccess (void* this, void* expr, char* name)
 {
-  rb_funcall((VALUE)(this), rb_intern("onVarAccess"), 2,  expr, rb_str_new2(name));
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onVarAccess"), 2,  expr, rb_str_new2(name));
+  return tmp;
 }
 
 void nq_onArrayAccessStart (void* this, void* array)
@@ -611,22 +665,30 @@ void nq_onArrayAccessStart (void* this, void* array)
 
 void * nq_onArrayAccessEnd (void* this)
 {
-  rb_funcall((VALUE)(this), rb_intern("onArrayAccessEnd"), 0 );
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onArrayAccessEnd"), 0 );
+  return tmp;
 }
 
 void * nq_onCast (void* this, void* expr, void* type)
 {
-  rb_funcall((VALUE)(this), rb_intern("onCast"), 2,  expr, type);
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onCast"), 2,  expr, type);
+  return tmp;
 }
 
 void * nq_onBreak (void* this)
 {
-  rb_funcall((VALUE)(this), rb_intern("onBreak"), 0 );
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onBreak"), 0 );
+  return tmp;
 }
 
 void * nq_onContinue (void* this)
 {
-  rb_funcall((VALUE)(this), rb_intern("onContinue"), 0 );
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onContinue"), 0 );
+  return tmp;
 }
 
 void nq_onBlockStart (void* this)
@@ -636,7 +698,9 @@ void nq_onBlockStart (void* this)
 
 void * nq_onBlockEnd (void* this)
 {
-  rb_funcall((VALUE)(this), rb_intern("onBlockEnd"), 0 );
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onBlockEnd"), 0 );
+  return tmp;
 }
 
 void nq_onIfStart (void* this, void* condition)
@@ -646,7 +710,9 @@ void nq_onIfStart (void* this, void* condition)
 
 void * nq_onIfEnd (void* this)
 {
-  rb_funcall((VALUE)(this), rb_intern("onIfEnd"), 0 );
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onIfEnd"), 0 );
+  return tmp;
 }
 
 void nq_onElseStart (void* this)
@@ -656,7 +722,9 @@ void nq_onElseStart (void* this)
 
 void * nq_onElseEnd (void* this)
 {
-  rb_funcall((VALUE)(this), rb_intern("onElseEnd"), 0 );
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onElseEnd"), 0 );
+  return tmp;
 }
 
 void nq_onForeachStart (void* this, void* decl, void* collec)
@@ -666,7 +734,9 @@ void nq_onForeachStart (void* this, void* decl, void* collec)
 
 void * nq_onForeachEnd (void* this)
 {
-  rb_funcall((VALUE)(this), rb_intern("onForeachEnd"), 0 );
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onForeachEnd"), 0 );
+  return tmp;
 }
 
 void nq_onWhileStart (void* this, void* condition)
@@ -676,232 +746,324 @@ void nq_onWhileStart (void* this, void* condition)
 
 void * nq_onWhileEnd (void* this)
 {
-  rb_funcall((VALUE)(this), rb_intern("onWhileEnd"), 0 );
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onWhileEnd"), 0 );
+  return tmp;
 }
 
 void * nq_onEquals (void* this, void* left, void* right)
 {
-  rb_funcall((VALUE)(this), rb_intern("onEquals"), 2,  left, right);
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onEquals"), 2,  left, right);
+  return tmp;
 }
 
 void * nq_onNotEquals (void* this, void* left, void* right)
 {
-  rb_funcall((VALUE)(this), rb_intern("onNotEquals"), 2,  left, right);
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onNotEquals"), 2,  left, right);
+  return tmp;
 }
 
 void * nq_onLessThan (void* this, void* left, void* right)
 {
-  rb_funcall((VALUE)(this), rb_intern("onLessThan"), 2,  left, right);
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onLessThan"), 2,  left, right);
+  return tmp;
 }
 
 void * nq_onMoreThan (void* this, void* left, void* right)
 {
-  rb_funcall((VALUE)(this), rb_intern("onMoreThan"), 2,  left, right);
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onMoreThan"), 2,  left, right);
+  return tmp;
 }
 
 void * nq_onCmp (void* this, void* left, void* right)
 {
-  rb_funcall((VALUE)(this), rb_intern("onCmp"), 2,  left, right);
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onCmp"), 2,  left, right);
+  return tmp;
 }
 
 void * nq_onLessThanOrEqual (void* this, void* left, void* right)
 {
-  rb_funcall((VALUE)(this), rb_intern("onLessThanOrEqual"), 2,  left, right);
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onLessThanOrEqual"), 2,  left, right);
+  return tmp;
 }
 
 void * nq_onMoreThanOrEqual (void* this, void* left, void* right)
 {
-  rb_funcall((VALUE)(this), rb_intern("onMoreThanOrEqual"), 2,  left, right);
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onMoreThanOrEqual"), 2,  left, right);
+  return tmp;
 }
 
 void * nq_onDecLiteral (void* this, char* value)
 {
-  rb_funcall((VALUE)(this), rb_intern("onDecLiteral"), 1,  rb_str_new2(value));
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onDecLiteral"), 1,  rb_str_new2(value));
+  return tmp;
 }
 
 void * nq_onBinLiteral (void* this, char* value)
 {
-  rb_funcall((VALUE)(this), rb_intern("onBinLiteral"), 1,  rb_str_new2(value));
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onBinLiteral"), 1,  rb_str_new2(value));
+  return tmp;
 }
 
 void * nq_onOctLiteral (void* this, char* value)
 {
-  rb_funcall((VALUE)(this), rb_intern("onOctLiteral"), 1,  rb_str_new2(value));
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onOctLiteral"), 1,  rb_str_new2(value));
+  return tmp;
 }
 
 void * nq_onHexLiteral (void* this, char* value)
 {
-  rb_funcall((VALUE)(this), rb_intern("onHexLiteral"), 1,  rb_str_new2(value));
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onHexLiteral"), 1,  rb_str_new2(value));
+  return tmp;
 }
 
 void * nq_onFloatLiteral (void* this, char* value)
 {
-  rb_funcall((VALUE)(this), rb_intern("onFloatLiteral"), 1,  rb_str_new2(value));
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onFloatLiteral"), 1,  rb_str_new2(value));
+  return tmp;
 }
 
 void * nq_onBoolLiteral (void* this, bool value)
 {
-  rb_funcall((VALUE)(this), rb_intern("onBoolLiteral"), 1,  value);
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onBoolLiteral"), 1,  value);
+  return tmp;
 }
 
 void * nq_onNull (void* this)
 {
-  rb_funcall((VALUE)(this), rb_intern("onNull"), 0 );
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onNull"), 0 );
+  return tmp;
 }
 
 void * nq_onDoubleArrow (void* this, void* left, void* right)
 {
-  rb_funcall((VALUE)(this), rb_intern("onDoubleArrow"), 2,  left, right);
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onDoubleArrow"), 2,  left, right);
+  return tmp;
 }
 
 void * nq_onTernary (void* this, void* condition, void* ifTrue, void* ifFalse)
 {
-  rb_funcall((VALUE)(this), rb_intern("onTernary"), 3,  condition, ifTrue, ifFalse);
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onTernary"), 3,  condition, ifTrue, ifFalse);
+  return tmp;
 }
 
 void * nq_onAssignAnd (void* this, void* left, void* right)
 {
-  rb_funcall((VALUE)(this), rb_intern("onAssignAnd"), 2,  left, right);
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onAssignAnd"), 2,  left, right);
+  return tmp;
 }
 
 void * nq_onAssignOr (void* this, void* left, void* right)
 {
-  rb_funcall((VALUE)(this), rb_intern("onAssignOr"), 2,  left, right);
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onAssignOr"), 2,  left, right);
+  return tmp;
 }
 
 void * nq_onAssignXor (void* this, void* left, void* right)
 {
-  rb_funcall((VALUE)(this), rb_intern("onAssignXor"), 2,  left, right);
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onAssignXor"), 2,  left, right);
+  return tmp;
 }
 
 void * nq_onAssignRightShift (void* this, void* left, void* right)
 {
-  rb_funcall((VALUE)(this), rb_intern("onAssignRightShift"), 2,  left, right);
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onAssignRightShift"), 2,  left, right);
+  return tmp;
 }
 
 void * nq_onAssignLeftShift (void* this, void* left, void* right)
 {
-  rb_funcall((VALUE)(this), rb_intern("onAssignLeftShift"), 2,  left, right);
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onAssignLeftShift"), 2,  left, right);
+  return tmp;
 }
 
 void * nq_onAssignDiv (void* this, void* left, void* right)
 {
-  rb_funcall((VALUE)(this), rb_intern("onAssignDiv"), 2,  left, right);
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onAssignDiv"), 2,  left, right);
+  return tmp;
 }
 
 void * nq_onAssignMul (void* this, void* left, void* right)
 {
-  rb_funcall((VALUE)(this), rb_intern("onAssignMul"), 2,  left, right);
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onAssignMul"), 2,  left, right);
+  return tmp;
 }
 
 void * nq_onAssignExp (void* this, void* left, void* right)
 {
-  rb_funcall((VALUE)(this), rb_intern("onAssignExp"), 2,  left, right);
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onAssignExp"), 2,  left, right);
+  return tmp;
 }
 
 void * nq_onAssignSub (void* this, void* left, void* right)
 {
-  rb_funcall((VALUE)(this), rb_intern("onAssignSub"), 2,  left, right);
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onAssignSub"), 2,  left, right);
+  return tmp;
 }
 
 void * nq_onAssignAdd (void* this, void* left, void* right)
 {
-  rb_funcall((VALUE)(this), rb_intern("onAssignAdd"), 2,  left, right);
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onAssignAdd"), 2,  left, right);
+  return tmp;
 }
 
 void * nq_onAssign (void* this, void* left, void* right)
 {
-  rb_funcall((VALUE)(this), rb_intern("onAssign"), 2,  left, right);
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onAssign"), 2,  left, right);
+  return tmp;
 }
 
 void * nq_onAdd (void* this, void* left, void* right)
 {
-  rb_funcall((VALUE)(this), rb_intern("onAdd"), 2,  left, right);
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onAdd"), 2,  left, right);
+  return tmp;
 }
 
 void * nq_onSub (void* this, void* left, void* right)
 {
-  rb_funcall((VALUE)(this), rb_intern("onSub"), 2,  left, right);
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onSub"), 2,  left, right);
+  return tmp;
 }
 
 void * nq_onMod (void* this, void* left, void* right)
 {
-  rb_funcall((VALUE)(this), rb_intern("onMod"), 2,  left, right);
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onMod"), 2,  left, right);
+  return tmp;
 }
 
 void * nq_onMul (void* this, void* left, void* right)
 {
-  rb_funcall((VALUE)(this), rb_intern("onMul"), 2,  left, right);
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onMul"), 2,  left, right);
+  return tmp;
 }
 
 void * nq_onExp (void* this, void* left, void* right)
 {
-  rb_funcall((VALUE)(this), rb_intern("onExp"), 2,  left, right);
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onExp"), 2,  left, right);
+  return tmp;
 }
 
 void * nq_onDiv (void* this, void* left, void* right)
 {
-  rb_funcall((VALUE)(this), rb_intern("onDiv"), 2,  left, right);
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onDiv"), 2,  left, right);
+  return tmp;
 }
 
 void * nq_onRangeLiteral (void* this, void* left, void* right)
 {
-  rb_funcall((VALUE)(this), rb_intern("onRangeLiteral"), 2,  left, right);
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onRangeLiteral"), 2,  left, right);
+  return tmp;
 }
 
 void * nq_onBinaryLeftShift (void* this, void* left, void* right)
 {
-  rb_funcall((VALUE)(this), rb_intern("onBinaryLeftShift"), 2,  left, right);
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onBinaryLeftShift"), 2,  left, right);
+  return tmp;
 }
 
 void * nq_onBinaryRightShift (void* this, void* left, void* right)
 {
-  rb_funcall((VALUE)(this), rb_intern("onBinaryRightShift"), 2,  left, right);
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onBinaryRightShift"), 2,  left, right);
+  return tmp;
 }
 
 void * nq_onLogicalOr (void* this, void* left, void* right)
 {
-  rb_funcall((VALUE)(this), rb_intern("onLogicalOr"), 2,  left, right);
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onLogicalOr"), 2,  left, right);
+  return tmp;
 }
 
 void * nq_onLogicalAnd (void* this, void* left, void* right)
 {
-  rb_funcall((VALUE)(this), rb_intern("onLogicalAnd"), 2,  left, right);
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onLogicalAnd"), 2,  left, right);
+  return tmp;
 }
 
 void * nq_onBinaryOr (void* this, void* left, void* right)
 {
-  rb_funcall((VALUE)(this), rb_intern("onBinaryOr"), 2,  left, right);
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onBinaryOr"), 2,  left, right);
+  return tmp;
 }
 
 void * nq_onBinaryXor (void* this, void* left, void* right)
 {
-  rb_funcall((VALUE)(this), rb_intern("onBinaryXor"), 2,  left, right);
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onBinaryXor"), 2,  left, right);
+  return tmp;
 }
 
 void * nq_onBinaryAnd (void* this, void* left, void* right)
 {
-  rb_funcall((VALUE)(this), rb_intern("onBinaryAnd"), 2,  left, right);
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onBinaryAnd"), 2,  left, right);
+  return tmp;
 }
 
 void * nq_onLogicalNot (void* this, void* inner)
 {
-  rb_funcall((VALUE)(this), rb_intern("onLogicalNot"), 1,  inner);
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onLogicalNot"), 1,  inner);
+  return tmp;
 }
 
 void * nq_onBinaryNot (void* this, void* inner)
 {
-  rb_funcall((VALUE)(this), rb_intern("onBinaryNot"), 1,  inner);
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onBinaryNot"), 1,  inner);
+  return tmp;
 }
 
 void * nq_onUnaryMinus (void* this, void* inner)
 {
-  rb_funcall((VALUE)(this), rb_intern("onUnaryMinus"), 1,  inner);
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onUnaryMinus"), 1,  inner);
+  return tmp;
 }
 
 void * nq_onParenthesis (void* this, void* inner)
 {
-  rb_funcall((VALUE)(this), rb_intern("onParenthesis"), 1,  inner);
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onParenthesis"), 1,  inner);
+  return tmp;
 }
 
 void nq_onGenericArgument (void* this, char* name)
@@ -911,12 +1073,16 @@ void nq_onGenericArgument (void* this, char* name)
 
 void * nq_onAddressOf (void* this, void* inner)
 {
-  rb_funcall((VALUE)(this), rb_intern("onAddressOf"), 1,  inner);
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onAddressOf"), 1,  inner);
+  return tmp;
 }
 
 void * nq_onDereference (void* this, void* inner)
 {
-  rb_funcall((VALUE)(this), rb_intern("onDereference"), 1,  inner);
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onDereference"), 1,  inner);
+  return tmp;
 }
 
 void nq_onMatchStart (void* this)
@@ -931,7 +1097,9 @@ void nq_onMatchExpr (void* this, void* value)
 
 void * nq_onMatchEnd (void* this)
 {
-  rb_funcall((VALUE)(this), rb_intern("onMatchEnd"), 0 );
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onMatchEnd"), 0 );
+  return tmp;
 }
 
 void nq_onCaseStart (void* this)
@@ -956,7 +1124,9 @@ void nq_onTryStart (void* this)
 
 void * nq_onTryEnd (void* this)
 {
-  rb_funcall((VALUE)(this), rb_intern("onTryEnd"), 0 );
+  VALUE *tmp = malloc(sizeof(VALUE));
+  *tmp = rb_funcall((VALUE)(this), rb_intern("onTryEnd"), 0 );
+  return tmp;
 }
 
 void nq_onCatchStart (void* this)
